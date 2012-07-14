@@ -1,0 +1,71 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <link href="../../Content/CSS/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/CSS/normilize.css" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]> <script type="text/javascript" src="js/html5shiv.js"></script> <![endif]-->
+    <script type='text/javascript' src="../../Scripts/jquery.js"></script>
+    <script type="text/javascript" src="../../Scripts/main.js"></script>
+    <!--<link rel="stylesheet/less" type="text/css" href="css/styles.less">
+    <script src="js/less-1.3.0.min.js" type="text/javascript"></script>-->
+    <script type="text/javascript" src="../../Scripts/fancybox/jquery.fancybox.pack.js"></script>
+    <link rel="stylesheet" href="../../Scripts/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="container">
+			<header>
+				<ul class="partners">
+					<li><a class="clinic" href="#"></a></li>
+					<li><a class="elle" href="#"></a></li>
+					<li><a class="fursie" href="#"></a></li>
+					<li><a class="beauty" href="#"></a></li>
+					<li><a class="gala" href="#"></a></li>
+				</ul>
+				<a class="m_question" href="#">Задать вопрос специалисту</a>
+				<nav>
+					<ul class="top_menu">
+						<li><a href="#">Статьи</a></li>
+						<li><a href="#">Контакты</a></li>
+					</ul>
+					<ul class="menu">
+						<li><a class="general" href="#">Главная</a></li>
+						<li><a class="cice" href="#">О сicé</a></li>
+						<li><a class="act_vesh" href="#">Активные вещества</a></li>
+						<li><a class="formula" href="#">Формула</a></li>
+						<li><a class="products" href="#">Продукты</a></li>
+						<li class="active"><a class="qaa" href="#">Вопросы и ответы</a></li>
+						<li><a class="contacts" href="#">Контакты</a></li>
+					</ul>
+				</nav>
+			</header>
+			<div class="content">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+			</div>
+			<div class="indent"></div>
+		</div>
+	</div>
+	<footer>
+		<div class="container">
+			<div class="copy">
+				Cice Cosmetics copyright ©2011
+			</div>
+			<div class="social_icons">
+				<ul>
+					<li><a class="vk" href="#"></a></li>
+					<li><a class="print" href="#"></a></li>
+					<li><a class="facebook" href="#"></a></li>
+					<li><a class="mir" href="#"></a></li>
+					<li><a class="red" href="#"></a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

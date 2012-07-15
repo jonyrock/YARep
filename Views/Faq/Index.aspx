@@ -92,8 +92,7 @@
 						<% } %>
 					<% } %> 
 					<time datetime="<%= question.CreationTime.ToShortDateString() %>">
-						<%= question.CreationTime.ToShortDateString() %></time>
-					
+						<%= question.CreationTime.ToShortDateString() %></time>					
 				</div>
 				<div class="com_content">
 					<% if (String.IsNullOrEmpty(question.Response)) { %>

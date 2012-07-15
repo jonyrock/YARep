@@ -7,7 +7,7 @@ namespace Cice.Models {
 	#region Models
 	public class Question {
 
-		public int Id { get; set; }
+		public Guid Id { get; set; }
 
 		public DateTime CreationTime { get; set; }
 
@@ -28,22 +28,35 @@ namespace Cice.Models {
 	#region Services
 
 	public interface IQuestionsService {
-		Question GetFullQuestion(int id);
+		
+		/// <summary>
+		/// Get certain question by guid.
+		/// </summary>
+		/// <param name="id">Expected question guid</param>
+		/// <returns>Either question if ok or null otherwise.</returns>
+		Question GetFullQuestion(Guid id);
 
 		/// <summary>
-		/// Get questions in range [p..q] in default order
+		/// Get questions in range [p..q] in default order.
 		/// </summary>
-		/// <param name="p">beging</param>
-		/// <param name="q">end</param>
-		/// <returns>questions, maybe null or just less than q - p + 1</returns>
+		/// <param name="p">Beginning or range.</param>
+		/// <param name="q">End of range.</param>
+		/// <returns>Questions. Maybe null. List<Question>.Count() <= q - p + 1.</returns>
 		List<Question> GetQuestionsRange(int p, int q);
 
 		/// <summary>
-		/// Update exist question. Filed Question.Id must has to be.
+		/// Update exist question. Field Question.Id is necessary.
 		/// </summary>
-		/// <param name="question">to update</param>
-		/// <returns>Succes or not</returns>
+		/// <param name="question">For update.</param>
+		/// <returns>Succes or not.</returns>
 		bool UpdateQuestion(Question question);
+
+		/// <summary>
+		/// Save new question. Field Question.Id should be null.
+		/// </summary>
+		/// <param name="question">For update.</param>
+		/// <returns>Succes or not.</returns>
+		bool SaveQuestion(Question question);
 
 	}
 

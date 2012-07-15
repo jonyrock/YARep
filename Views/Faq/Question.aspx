@@ -37,9 +37,6 @@
 							<a class="addthis_counter"></a>
 						</div>
 					</div>
-					<div class="more_info">
-						<a href="#">Комментарии (2)</a>
-					</div>
 					</article>
 				</li>
 			</ul>

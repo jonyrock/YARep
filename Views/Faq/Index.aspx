@@ -70,7 +70,6 @@
 		<ul>
 	<% foreach (Cice.Models.Question question in ViewData.Model) {
 		 string link = Url.Action("Question", new { id = question.Id });
-		 string commentsCount = question.Comments.Count().ToString();
 		 string cuttedResponse = "";
 		 if (!String.IsNullOrEmpty(question.Response)) {
 			if (question.Response.Length > 255)
@@ -103,7 +102,7 @@
 					<% } %>
 				</div>
 				<div class="more_info">
-					<a href="<%= link %>">Подробнее</a>|<a href="<%= link %>">Комментарии (<%= commentsCount %>)</a>
+					<a href="<%= link %>">Подробнее</a>
 				</div>
 				</article>
 			</li>

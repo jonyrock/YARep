@@ -1,10 +1,10 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Cice.Models {
 
 	#region Models
+
 	public class Question {
 
 		public Guid Id { get; set; }
@@ -21,9 +21,23 @@ namespace Cice.Models {
 
 		public string AuthorPhone { get; set; }
 
-	}
-	#endregion
+		public string Response { get; set; }
 
+		public List<Comment> Comments { get; set; }
+
+	}
+
+	public class Comment {
+
+		public string AuthorName { get; set; }
+
+		public string AuthorEmail { get; set; }
+
+		public string Text { get; set; }
+
+	}
+
+	#endregion
 
 	#region Services
 
@@ -41,7 +55,7 @@ namespace Cice.Models {
 		/// </summary>
 		/// <param name="p">Beginning or range.</param>
 		/// <param name="q">End of range.</param>
-		/// <returns>Questions. Maybe null. List<Question>.Count() <= q - p + 1.</returns>
+		/// <returns>Questions. List<Question>.Count() <= q - p + 1.</returns>
 		List<Question> GetQuestionsRange(int p, int q);
 
 		/// <summary>
@@ -57,6 +71,59 @@ namespace Cice.Models {
 		/// <param name="question">For update.</param>
 		/// <returns>Succes or not.</returns>
 		bool SaveQuestion(Question question);
+
+		/// <summary>
+		/// All questions number in base.
+		/// </summary>
+		int QuestionsCount { get; }
+
+	}
+
+	public class XmlQuestionService : IQuestionsService {
+
+		public XmlQuestionService() {
+
+		}
+
+		public int QuestionsCount { get { return 54; } }
+
+		static Random rand = new Random();
+
+		public Question GetFullQuestion(Guid id) {
+			var q = new Question();
+			q.Title = "Как мне подобрать правильные средства ухода и декоративную косметику?";
+			q.AuthorName = "Татьяна";
+			q.CreationTime = DateTime.Parse("03/01/2009 05:42:00");
+			q.Text = "Ощущение «тяжести» на лице совершенно не означает, что кожа перегружена. Вы можете спокойно использовать тональные средства даже максимального покрытия - они не способны оказать негативное воздействие на кожу. В редких случаях косметические продукты с высоким уровнем SPF или водостойкие тональные средства могут вызвать ощущение «тяжести» на коже, потому что они содержат компоненты, которые поглощают УФ-лучи, или обладают водостойкими свойствами. При появлении каких-либо проблем с кожей немедленно прекратите использование продукта.При появлении акне рекомендуется прекратить использование тональных средств, которые могут только осложнить ситуацию.";
+			q.AuthorPhone = "8 911 299 16 15";
+			q.AuthorEmail = "gmpota@gmail.com";
+			q.Id = id;
+			q.Comments = new List<Comment>();
+
+			if (rand.Next() % 2 == 0) {
+				q.Response = "Ощущение «тяжести» на лице совершенно не означает, что кожа перегружена. Вы можете спокойно использовать тональные средства даже максимального покрытия - они не способны оказать негативное воздействие на кожу. В редких случаях косметические продукты с высоким уровнем SPF или водостойкие тональные средства могут вызвать ощущение «тяжести» на коже, потому что они содержат компоненты, которые поглощают УФ-лучи, или обладают водостойкими свойствами. При появлении каких-либо проблем с кожей немедленно прекратите использование продукта.При появлении акне рекомендуется прекратить использование тональных средств, которые могут только осложнить ситуацию.";
+			}
+			return q;
+		}
+
+		public List<Question> GetQuestionsRange(int p, int q) {
+
+			List<Question> qlist = new List<Question>();
+			while (p <= q && p < QuestionsCount) {
+				qlist.Add(GetFullQuestion(Guid.NewGuid()));
+				p++;
+			}
+			return qlist;
+
+		}
+
+		public bool UpdateQuestion(Question question) {
+			return true;
+		}
+
+		public bool SaveQuestion(Question question) {
+			return true;
+		}
 
 	}
 

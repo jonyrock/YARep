@@ -1,12 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<List<Cice.Models.Question>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" 
+	Inherits="System.Web.Mvc.ViewPage<List<Cice.Models.Question>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Index
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-
 
 <div class="img_block">
 	
@@ -18,7 +17,6 @@
 		<img src="/Content/Images/title_qaa.png" alt=""/>
 	</div>
 </div>
-
 <div class="qaa_content">
 	
 			<ul>
@@ -46,7 +44,7 @@
 							E-mail:
 						</label>
 						<input name="name" id="email" type="email"/> <span class="star"></span>
-                        <label for="phone">
+						<label for="phone">
 							Телефон:
 						</label>
 						<input name="name" id="phone" type="phone" /> <span class="star"></span>
@@ -67,112 +65,44 @@
 			</ul>
 
 	</div>
-<div class="page_navigation">
-		<ul>
-			<li class="active_page"><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
-		</ul>
-		<a class="next" href="#">Следующая</a>
-	</div>
+<% Html.RenderPartial("Pages", ViewData); %>
 <div class="comments">
-		<div class="content_container">
-			<ul>
-				<li>
-					<article>
-					<a href="/quastions.html" class="other_com"></a>
-					<h2><%= Html.ActionLink("Как мне подобрать правильные средства ухода и декоративную косметику?", "Question", new { id = 1 })%></h2>
-					<div class="com_info">
-						<span>Татьяна</span>|<time datetime="2012-05-15">15 мая 2012, 16:00</time>
-					</div>
-					<div class="com_content">
-						<div class="no_answer">
-							Ответа пока нет
-						</div>
-
-					</div>
-					<div class="more_info">
-						<a href="quastions.html">Подробнее</a>|<a href="quastions.html">Комментарии (1)</a>
-					</div>
-					</article>
-				</li>
-				<li>
-					<article>
-					<a href="quastions.html" class="other_com"></a>
-					<h2>Как мне подобрать правильные средства ухода и декоративную косметику?</h2>
-					<div class="com_info">
-						<span>Татьяна</span>|<time datetime="2012-05-15">15 мая 2012, 16:00</time>
-					</div>
-					<div class="com_content">
-						<div class="answer">
-							Ответ
-						</div>
-						<p>
-							Начните с диагностики кожи для определения ее типа и состояния. Зарегистрируйтесь в Клубе Clinique
-							и сохраните в своем профиле результаты диагностики кожи вместе с рекомендуемыми Вам продуктами
-							и оттенками. Вы также можете Задать вопрос нашему Эксперту, чтобы получить рекомендации по ...
-						</p>
-					</div>
-					<div class="more_info">
-						<a href="quastions.html">Подробнее</a>|<a href="quastions.html">Комментарии (0)</a>
-					</div>
-					</article>
-				</li>
-				<li>
-					<article>
-					<a href="quastions.html" class="other_com"></a>
-					<h2>Как мне подобрать правильные средства ухода и декоративную косметику? Можете ли вы отправить мне пробники косметики Cice</h2>
-					<div class="com_info">
-						<span>Татьяна</span>|<time datetime="2012-05-15">15 мая 2012, 16:00</time>
-					</div>
-					<div class="com_content">
-						<div class="answer">
-							Ответ
-						</div>
-						<p>
-							Начните с диагностики кожи для определения ее типа и состояния. Зарегистрируйтесь в Клубе Clinique
-							и сохраните в своем профиле результаты диагностики кожи вместе с рекомендуемыми Вам продуктами
-							и оттенками. Вы также можете Задать вопрос нашему Эксперту, чтобы получить рекомендации по ...
-						</p>
-					</div>
-					<div class="more_info">
-						<a href="quastions.html">Подробнее</a>|<a href="quastions.html">Комментарии (0)</a>
-					</div>
-					</article>
-				</li>
-				<li>
-					<article>
-					<a href="quastions.html" class="other_com"></a>
-					<h2>Как мне подобрать правильные средства ухода и декоративную косметику?</h2>
-					<div class="com_info">
-						<span>Татьяна</span>|<time datetime="2012-05-15">15 мая 2012, 16:00</time>
-					</div>
-					<div class="com_content">
-						<div class="no_answer">
-							Ответа пока нет
-						</div>
-						<textarea></textarea>
-						<button class="b_answer" type="submit">Ответить</button>
-					</div>
-					<div class="more_info">
-						<a href="quastions.html">Подробнее</a>|<a href="quastions.html">Комментарии (1)</a>
-					</div>
-					</article>
-				</li>
-			</ul>
-		</div>
-	</div>
-<div class="page_navigation">
+	<div class="content_container">
 		<ul>
-			<li class="active_page"><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
+	<% foreach (Cice.Models.Question question in ViewData.Model) {
+		 string link = Url.Action("Question", new { id = question.Id });
+		 string commentsCount = question.Comments.Count().ToString();
+		 string cuttedResponse = "";
+		 if (!String.IsNullOrEmpty(question.Response)) {
+			if (question.Response.Length > 255)
+				cuttedResponse = question.Response.Substring(0, 252) + "...";
+		 }
+	%>
+			<li>
+				<article>
+				<a href="<%= link %>" class="other_com"></a>
+				<h2><%= Html.ActionLink(question.Title, "Question", new { id = question.Id }) %></h2>
+				<div class="com_info">
+					<span><%= question.AuthorName %></span>|
+					<time datetime="<%= question.CreationTime.ToShortDateString() %>"><%= question.CreationTime.ToShortDateString() %></time>
+				</div>
+				<div class="com_content">
+					<% if (String.IsNullOrEmpty(question.Response)) { %>
+						<div class="no_answer"> Ответа пока нет </div>
+					<% } else {  %>
+						<div class="answer"> Ответ </div>
+						<p><%= cuttedResponse %> </p>
+					<% } %>
+				</div>
+				<div class="more_info">
+					<a href="<%= link %>">Подробнее</a>|<a href="<%= link %>">Комментарии (<%= commentsCount %>)</a>
+				</div>
+				</article>
+			</li>
+		<% } %>
 		</ul>
-		<a class="next" href="#">Следующая</a>
-</div>	
+	</div>
+</div>
+<% Html.RenderPartial("Pages", ViewData); %>
 
 </asp:Content>

@@ -3,39 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Cice.Models;
 
-namespace Cice.Controllers
-{
-	public class FaqController : Controller
-	{
-		//
-		// GET: /Faq/
+namespace Cice.Controllers {
+	public class FaqController : Controller {
 
-		public ActionResult Index(int page = 1) {
-			// TODO : вернуть список вопросов
+		public IQuestionsService QuestionService { get; set; }
 
-			var questions = new List<Question>();
+		protected override void Initialize(RequestContext requestContext) {
+			if (QuestionService == null) QuestionService = new XmlQuestionService();
+			base.Initialize(requestContext);
+		}
 
-
+		public ActionResult Index(int id = 1) {
+			int p = (id - 1) * 10;
+			if (p > QuestionService.QuestionsCount || p < 0) {
+				throw new HttpException(404, "Page doesn't exist");
+			}
+			int q = p + 10;
+			ViewData.Model = QuestionService.GetQuestionsRange(p, q);
+			ViewData["currentPage"] = id;
+			ViewData["countPages"] = (QuestionService.QuestionsCount + 9) / 10;
 			return View();
 		}
 
-		public ActionResult Question(int id) {
-			if (id < 0) {
-				throw new ArgumentException("Id can't be negative");
-			}
-
-			var q = new Question();
-			q.Title = "Как мне подобрать правильные средства ухода и декоративную косметику?";
-			q.AuthorName = "Татьяна";
-			q.CreationTime = DateTime.Parse("03/01/2009 05:42:00");
-			q.Text = "Ощущение «тяжести» на лице совершенно не означает, что кожа перегружена. Вы можете спокойно использовать тональные средства даже максимального покрытия - они не способны оказать негативное воздействие на кожу. В редких случаях косметические продукты с высоким уровнем SPF или водостойкие тональные средства могут вызвать ощущение «тяжести» на коже, потому что они содержат компоненты, которые поглощают УФ-лучи, или обладают водостойкими свойствами. При появлении каких-либо проблем с кожей немедленно прекратите использование продукта.При появлении акне рекомендуется прекратить использование тональных средств, которые могут только осложнить ситуацию.";
-			q.AuthorPhone = "8 911 299 16 15";
-			q.AuthorEmail = "gmpota@gmail.com";
-			ViewData.Model = q;
-			
-
+		public ActionResult Question(Guid id) {
+			// TODO: null check
+			ViewData.Model = QuestionService.GetFullQuestion(id);
 			return View();
 		}
 

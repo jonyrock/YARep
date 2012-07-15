@@ -14,6 +14,10 @@ namespace Cice.Controllers
 
 		public ActionResult Index(int page = 1) {
 			// TODO : вернуть список вопросов
+
+			var questions = new List<Question>();
+
+
 			return View();
 		}
 

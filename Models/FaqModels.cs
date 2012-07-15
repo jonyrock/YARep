@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 
 namespace Cice.Models {
 
@@ -22,4 +23,30 @@ namespace Cice.Models {
 
 	}
 	#endregion
+
+
+	#region Services
+
+	public interface IQuestionsService {
+		Question GetFullQuestion(int id);
+
+		/// <summary>
+		/// Get questions in range [p..q] in default order
+		/// </summary>
+		/// <param name="p">beging</param>
+		/// <param name="q">end</param>
+		/// <returns>questions, maybe null or just less than q - p + 1</returns>
+		List<Question> GetQuestionsRange(int p, int q);
+
+		/// <summary>
+		/// Update exist question. Filed Question.Id must has to be.
+		/// </summary>
+		/// <param name="question">to update</param>
+		/// <returns>Succes or not</returns>
+		bool UpdateQuestion(Question question);
+
+	}
+
+	#endregion
+
 }

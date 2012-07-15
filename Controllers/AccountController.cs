@@ -40,7 +40,7 @@ namespace Cice.Controllers {
                     if (!String.IsNullOrEmpty(returnUrl)) {
                         return Redirect(returnUrl);
                     } else {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Faq");
                     }
                 } else {
                     ModelState.AddModelError("", "The user name or password provided is incorrect.");

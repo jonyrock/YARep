@@ -9,6 +9,8 @@ using Cice.Models;
 namespace Cice.Controllers {
 	public class FaqController : Controller {
 
+		public const int ItemsPerPage = 10;
+
 		public IQuestionsService QuestionService { get; set; }
 
 		protected override void Initialize(RequestContext requestContext) {
@@ -16,15 +18,16 @@ namespace Cice.Controllers {
 			base.Initialize(requestContext);
 		}
 
+		
 		public ActionResult Index(int id = 1) {
-			int p = (id - 1) * 10;
+			int p = (id - 1) * ItemsPerPage;
 			if (p > QuestionService.QuestionsCount || p < 0) {
 				throw new HttpException(404, "Page doesn't exist");
 			}
-			int q = p + 10;
+			int q = p + ItemsPerPage;
 			ViewData.Model = QuestionService.GetQuestionsRange(p, q);
 			ViewData["currentPage"] = id;
-			ViewData["countPages"] = (QuestionService.QuestionsCount + 9) / 10;
+			ViewData["countPages"] = (QuestionService.QuestionsCount - 1) / ItemsPerPage + 1;
 			return View();
 		}
 

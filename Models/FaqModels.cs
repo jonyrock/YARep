@@ -1,37 +1,25 @@
 ﻿
 using System;
 
-class Question {
+namespace Cice.Models {
 
-    private string authorName;
-    public string AuthorName {
-        get { return authorName; }
-        set { authorName = value; }
-    }
+	#region Models
+	public class Question {
 
-    private string authorEmail;
-    public string AuthorEmail {
-        get { return authorEmail; }
-        set { authorEmail = value; }
-    }
-    
-    private string authorPhone;
-    public string AuthorPhone {
-        get { return authorPhone; }
-        set { authorPhone = value; }
-    }
-    
-    private DateTime creationTime;
-    public DateTime CreationTime {
-        get { return creationTime; }
-        set { creationTime = value; }
-    }
+		public int Id { get; set; }
 
-    private int id;
-    public int Id {
-        get { return id; }
-        set { id = value; }
-    }
+		public DateTime CreationTime { get; set; }
 
+		public string Title { get; set; }
 
+		public string Text { get; set; }
+
+		public string AuthorName { get; set; }
+	   
+		public string AuthorEmail { get; set; }
+
+		public string AuthorPhone { get; set; }
+
+	}
+	#endregion
 }

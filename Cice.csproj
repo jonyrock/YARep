@@ -105,6 +105,10 @@
     <Content Include="Content\Images\title_qaa.png" />
     <Content Include="Content\Images\tm_border.png" />
     <Content Include="Content\Images\vk.png" />
+    <Content Include="Docs\QuestionDesign\inside_admin_answer.png" />
+    <Content Include="Docs\QuestionDesign\inside_admin_no_answer.png" />
+    <Content Include="Docs\QuestionDesign\inside_answer.png" />
+    <Content Include="Docs\QuestionDesign\inside_no_answer.png" />
     <Content Include="Docs\TasksBase.txt" />
     <Content Include="Docs\Nodes.txt" />
     <Content Include="Global.asax" />

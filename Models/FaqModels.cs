@@ -93,6 +93,7 @@ namespace Cice.Models {
 		public XmlQuestionService() {
 			QuestionsBasePath = HttpContext.Current.Server.MapPath("~/App_Data/QuestionsBase.txt");
 			QuestionsFolderPath = HttpContext.Current.Server.MapPath("~/App_Data/Questions/");
+			if (!File.Exists(QuestionsBasePath)) File.WriteAllText(QuestionsBasePath, "0");
 		}
 
 		int? questionsCount;

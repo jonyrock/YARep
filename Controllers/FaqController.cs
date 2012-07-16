@@ -29,17 +29,18 @@ namespace Cice.Controllers {
 			return View();
 		}
 
+		[ValidateInput(false)]
 		public ActionResult AddQuestion(string name, string email, string phone, string title, string text) {
 			if (String.IsNullOrEmpty(name)) ModelState.AddModelError("name", "Empty name");
 			if (String.IsNullOrEmpty(title)) ModelState.AddModelError("name", "Empty name");
 
 			if (ModelState.IsValid) {
 				var q = new Question();
-				q.AuthorName = name;
-				q.AuthorEmail = email;
-				q.AuthorPhone = phone;
-				q.Title = title;
-				q.Text = text;
+				q.AuthorName = Server.HtmlEncode(name); 
+				q.AuthorEmail = Server.HtmlEncode(email);
+				q.AuthorPhone = Server.HtmlEncode(phone);
+				q.Title = Server.HtmlEncode(title);
+				q.Text = Server.HtmlEncode(text);
 				q.CreationTime = DateTime.Now;
 				ViewData["saveStatus"] = QuestionService.SaveQuestion(q);
 			}
@@ -47,6 +48,7 @@ namespace Cice.Controllers {
 			return RedirectToAction("Index");
 		}
 
+		[HttpGet]
 		public ActionResult Question(Guid id) {
 			// TODO: null check
 			ViewData.Model = QuestionService.GetFullQuestion(id);
@@ -54,6 +56,7 @@ namespace Cice.Controllers {
 		}
 
 		[HttpPost]
+		[ValidateInput(false)]
 		public ActionResult Question(Guid id, string response) {
 			var q = QuestionService.GetFullQuestion(id);
 			q.Response = response;

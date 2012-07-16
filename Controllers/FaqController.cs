@@ -40,6 +40,7 @@ namespace Cice.Controllers {
 				q.AuthorPhone = phone;
 				q.Title = title;
 				q.Text = text;
+				q.CreationTime = DateTime.Now;
 				ViewData["saveStatus"] = QuestionService.SaveQuestion(q);
 			}
 
@@ -54,6 +55,10 @@ namespace Cice.Controllers {
 
 		[HttpPost]
 		public ActionResult Question(Guid id, string response) {
+			var q = QuestionService.GetFullQuestion(id);
+			q.Response = response;
+			q.ResponseCreationTime = DateTime.Now;
+			QuestionService.UpdateQuestion(q);
 			ViewData["saved"] = true;
 			return Question(id);
 		}

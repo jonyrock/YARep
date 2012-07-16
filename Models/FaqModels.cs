@@ -2,11 +2,14 @@
 using System.Web;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Cice.Models {
 
 	#region Models
 
+	[Serializable]
 	public class Question {
 
 		public Guid Id { get; set; }
@@ -84,10 +87,12 @@ namespace Cice.Models {
 
 	public class XmlQuestionService : IQuestionsService {
 
-		public string QuestionsBasePath;
+		string QuestionsBasePath;
+		string QuestionsFolderPath;
 		
 		public XmlQuestionService() {
 			QuestionsBasePath = HttpContext.Current.Server.MapPath("~/App_Data/QuestionsBase.txt");
+			QuestionsFolderPath = HttpContext.Current.Server.MapPath("~/App_Data/Questions/");
 		}
 
 		int? questionsCount;
@@ -102,44 +107,50 @@ namespace Cice.Models {
 			}
 		}
 
-		static Random rand = new Random();
-
 		public Question GetFullQuestion(Guid id) {
-			var q = new Question();
-			q.Title = "Как мне подобрать правильные средства ухода и декоративную косметику?";
-			q.AuthorName = "Татьяна";
-			q.CreationTime = DateTime.Parse("03/01/2009 05:42:00");
-			q.Text = "Ощущение «тяжести» на лице совершенно не означает, что кожа перегружена. Вы можете спокойно использовать тональные средства даже максимального покрытия - они не способны оказать негативное воздействие на кожу. В редких случаях косметические продукты с высоким уровнем SPF или водостойкие тональные средства могут вызвать ощущение «тяжести» на коже, потому что они содержат компоненты, которые поглощают УФ-лучи, или обладают водостойкими свойствами. При появлении каких-либо проблем с кожей немедленно прекратите использование продукта.При появлении акне рекомендуется прекратить использование тональных средств, которые могут только осложнить ситуацию.";
-			q.AuthorPhone = "8 911 299 16 15";
-			q.AuthorEmail = "gmpota@gmail.com";
-			q.Id = id;
-			q.ResponseCreationTime = DateTime.Now;
-
-			if (rand.Next() % 2 == 0) {
-				q.Response = "Ощущение «тяжести» на лице совершенно не означает, что кожа перегружена. Вы можете спокойно использовать тональные средства даже максимального покрытия - они не способны оказать негативное воздействие на кожу. В редких случаях косметические продукты с высоким уровнем SPF или водостойкие тональные средства могут вызвать ощущение «тяжести» на коже, потому что они содержат компоненты, которые поглощают УФ-лучи, или обладают водостойкими свойствами. При появлении каких-либо проблем с кожей немедленно прекратите использование продукта.При появлении акне рекомендуется прекратить использование тональных средств, которые могут только осложнить ситуацию.";
-			}
+			var reader = File.OpenRead(QuestionsFolderPath + id);
+			BinaryFormatter formatter = new BinaryFormatter();
+			var q = (Question)formatter.Deserialize(reader);
+			reader.Close();
 			return q;
 		}
 
 		public List<Question> GetQuestionsRange(int p, int q) {
-
 			List<Question> qlist = new List<Question>();
 			TextReader reader = new StreamReader(QuestionsBasePath);
-			for (int i = 0; i < p; i++) reader.ReadLine();
+			for (int i = 0; i <= p; i++) reader.ReadLine();
 			while (p <= q && p < QuestionsCount) {
-				qlist.Add(GetFullQuestion(Guid.NewGuid()));
+				string s = reader.ReadLine();
+				qlist.Add(GetFullQuestion(new Guid(s)));
 				p++;
 			}
 			reader.Close();
 			return qlist;
-
 		}
 
 		public bool UpdateQuestion(Question question) {
+			BinaryFormatter formatter = new BinaryFormatter();
+			File.Delete(QuestionsFolderPath + question.Id.ToString());
+			var stream = File.Create(QuestionsFolderPath + question.Id.ToString());
+			formatter.Serialize(stream, question);
+			stream.Close();
 			return true;
 		}
 
 		public bool SaveQuestion(Question question) {
+			Guid newGuid = Guid.NewGuid();
+			var lines = new List<string>(File.ReadAllLines(QuestionsBasePath));
+			int count = int.Parse(lines[0]);
+			var newLines = new List<string>();
+			newLines.Add((count + 1).ToString());
+			newLines.Add(newGuid.ToString());
+			newLines.AddRange(lines.Skip(1));
+			File.WriteAllLines(QuestionsBasePath, newLines.ToArray());
+			question.Id = newGuid;
+			BinaryFormatter formatter = new BinaryFormatter();
+			var stream = File.Create(QuestionsFolderPath + newGuid.ToString());
+			formatter.Serialize(stream, question);
+			stream.Close();
 			return true;
 		}
 

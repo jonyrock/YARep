@@ -65,8 +65,10 @@
 		 string link = Url.Action("Question", new { id = question.Id });
 		 string cuttedResponse = "";
 		 if (!String.IsNullOrEmpty(question.Response)) {
-			if (question.Response.Length > 255)
-				cuttedResponse = question.Response.Substring(0, 252) + "...";
+			 if (question.Response.Length > 255)
+				 cuttedResponse = question.Response.Substring(0, 252) + "...";
+			 else
+				 cuttedResponse = question.Response;
 		 }
 	%>
 			<li>

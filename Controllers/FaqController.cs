@@ -31,10 +31,17 @@ namespace Cice.Controllers {
 			return View();
 		}
 
+		[HttpGet]
 		public ActionResult Question(Guid id) {
 			// TODO: null check
 			ViewData.Model = QuestionService.GetFullQuestion(id);
 			return View();
+		}
+
+		[HttpPost]
+		public ActionResult Question(Guid id, string response) {
+			ViewData["saved"] = true;
+			return Question(id);
 		}
 
 	}

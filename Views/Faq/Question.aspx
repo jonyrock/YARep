@@ -73,9 +73,9 @@
 
 				<% if (Request.IsAuthenticated) { %>
 				<li>
+					<% if (ViewData["saved"] != null) { %> <strong style="color:Green; font-size:smaller"> Ответ изменен. </strong>  <% } %>
 					<% using (Html.BeginForm()) { %>
-						<%= Html.Hidden("Id", Model.Id) %>
-						<%= Html.TextArea("Response", Model.Response) %>
+						<%= Html.TextArea("response", Model.Response) %>
 						<p> <button class="b_answer" type="submit" title="Пустой ответ - удаление ответа." >Ответить</button> </p>
 					<% } %>
 				</li>

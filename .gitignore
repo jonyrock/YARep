@@ -1,3 +1,6 @@
+#CiceFiles
+App_Data/
+
 #OS junk files
 [Tt]humbs.db
 *.DS_Store

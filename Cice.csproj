@@ -83,6 +83,7 @@
     <Content Include="Content\Images\but_hover.png" />
     <Content Include="Content\Images\capcha.png" />
     <Content Include="Content\Images\capcha_sprite.png" />
+    <Content Include="Content\Images\cice_mini_logo.gif" />
     <Content Include="Content\Images\com_cont_but.png" />
     <Content Include="Content\Images\com_cont_h.png" />
     <Content Include="Content\Images\com_q.png" />

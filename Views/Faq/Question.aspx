@@ -5,6 +5,8 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+	
+	<% var question = Model; %>
 
 	<div class="img_block">
 		<a class="logo" href="#">сicé<span>safer skincare</span></a>
@@ -21,70 +23,71 @@
 	</div>
 	<div class="comments">
 		<div class="content_container">
-			<ul>
+			
+			<div class="talk">
+				
+				<ul>
 				<li>
 					<article>
-					<a href="#" class="other_com"></a>
-					<h2>Как мне подобрать правильные средства ухода и декоративную косметику?</h2>
-					<div class="com_info">
-						<span>Татьяна</span>|<time datetime="2012-05-15">15 мая 2012, 16:00</time>
-					</div>
-					<div class="com_content">
-						<div class="no_answer">
-							Ответа пока нет
-						</div>
-						<div class="addthis_toolbox addthis_default_style ">
-							<a class="addthis_counter"></a>
-						</div>
-					</div>
-					</article>
-				</li>
-			</ul>
-			<div class="talk">
-				<ul>
-					<li>
-						<article>
-						<div class="com_info talk_req">
-							<span>Татьяна</span>|<time datetime="2012-05-15">15 мая 2012, 16:00</time>
+						<a href="#" class="other_com"></a>
+						<h2>Как мне подобрать правильные средства ухода и декоративную косметику?</h2>
+						<div class="talk_req com_info ">
+							<span><%= question.AuthorName %></span>|
+							<% if (Request.IsAuthenticated) { %>
+								<% if (!String.IsNullOrEmpty(question.AuthorEmail)) { %> 
+									<span><%= question.AuthorEmail %></span>| 
+								<% } %>
+								<% if (!String.IsNullOrEmpty(question.AuthorPhone)) { %> 
+									<span><%= question.AuthorPhone %></span>| 
+								<% } %>
+							<% } %> 
+							<time datetime="<%= question.CreationTime.ToShortDateString() %>">
+								<%= question.CreationTime.ToShortDateString() %></time>	
 						</div>
 						<p>
-							Ощущение «тяжести» на лице совершенно не означает, что кожа перегружена. Вы можете спокойно использовать тональные средства даже максимального покрытия - они не способны оказать негативное воздействие на кожу.
-							В редких случаях косметические продукты с высоким уровнем SPF или водостойкие тональные средства могут 	вызвать ощущение «тяжести» на коже, потому что они содержат компоненты, которые поглощают УФ-лучи, или обладают водостойкими свойствами. При появлении каких-либо проблем с кожей немедленно прекратите использование продукта.При появлении акне рекомендуется прекратить использование тональных средств, которые могут только осложнить ситуацию.
+							<%= question.Text %>
 						</p>
-						</article>
-					</li>
-					
-					<li>
-						<article class = "art_admin_comment">
-						<div class="com_info talk_req">
-						<span class="admin_title">cicé</span>|<time datetime="2012-05-15">15 мая 2012, 17:00</time>
-					</div>
-					<p class="admin_comment">
-						Ощущение «тяжести» на лице совершенно не означает, что кожа перегружена. Вы можете спокойно использовать 	тональные средства даже максимального покрытия - они не способны оказать негативное воздействие на кожу.
-						В редких случаях косметические продукты с высоким уровнем SPF или водостойкие тональные средства могут вызвать ощущение «тяжести» на коже, потому что они содержат компоненты, которые поглощают УФ-лучи, или обладают водостойкими свойствами. При появлении каких-либо проблем с кожей немедленно прекратите использование продукта.При появлении акне рекомендуется прекратить использование тональных средств, которые могут только осложнить ситуацию.
-					</p>
+						
+						<% if (String.IsNullOrEmpty(question.Response)) { %>
+							<div class="com_content"> <div class="no_answer"> Ответа пока нет </div> </div>
+						<% } %>
+						
 					</article>
-					</li>
+				</li>
+				
+				<% if (!Request.IsAuthenticated && !String.IsNullOrEmpty(question.Response)) { %>
+				<li>
+					<article class = "art_admin_comment">
+						<div class="com_info talk_req">
+							<span class="admin_title"></span>|<time datetime="2012-05-15">15 мая 2012, 17:00</time>
+						</div>
+						<div class="com_content">
+							<div class="answer"> Ответ </div>
+							<p>
+								Ощущение «тяжести» на лице совершенно не означает, что кожа перегружена. Вы можете спокойно использовать тональные средства даже максимального покрытия - они не способны оказать негативное воздействие на кожу. В редких случаях косметические продукты с высоким уровнем SPF или водостойкие тональные средства могут вызвать ощущение «тяжести» на коже, потому что они содержат компоненты, которые поглощают УФ-лучи, или обладают водостойкими свойствами. При появлении каких-либо проблем с кожей немедленно прекратите использование продукта.При появлении акне рекомендуется прекратить использование тональных средств, которые могут только осложнить ситуацию.
+							</p>
+						</div>
+					</article>
+				</li>
+				<% } %>
+
+				<% if (Request.IsAuthenticated) { %>
+				<li>
+					<% using (Html.BeginForm()) { %>
+						<%= Html.Hidden("Id", Model.Id) %>
+						<%= Html.TextArea("Response", Model.Response) %>
+						<p> <button class="b_answer" type="submit" title="Пустой ответ - удаление ответа." >Ответить</button> </p>
+					<% } %>
+				</li>
+				<% } %>
+
 				</ul>
+
+				
 			</div>
 			
 		</div>
-		<div class="com_form">
-			<div class="content_container">
-				<a href="#" class="other_com_q"></a>
-				<h2>Комментировать</h2>
-				<form method="get" action="#">
-					<label for="name">Имя:</label>
-					<input name="name" id="name" type="text" required="required"/> <span class="star">*</span>
-					<label class="l_area" for="area">Сообщение:</label>
-					
-					<textarea id="area" required="required"></textarea> <span class="star">*</span>
-					<a href="http://html12.mdlv.ru/5/capcha.html" class="iframe">Отправить</a>
-					<p class="pole"><span class="star">*</span> обязательные для заполнения поля</p>
-					
-				</form>
-			</div>
-		</div>
+
 	</div>
 
 </asp:Content>

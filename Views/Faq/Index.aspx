@@ -34,32 +34,25 @@
 			<span class="qaa_admin">С уважением CICE cosmetics !</span>
 		</li>
 		<li>
-			<form method="get" action="#">
-				<label for="name">
-					Имя:
-				</label>
+			<%= ViewData["saveStatus"] %>
+			<% using (Html.BeginForm("AddQuestion", "Faq")) { %>
+				<label for="name"> Имя: </label>
 				<input name="name" id="name" type="text" required="required"/> <span class="star">*</span>
-				<label for="email">
-					E-mail:
-				</label>
-				<input name="name" id="email" type="email"/> <span class="star"></span>
-				<label for="phone">
-					Телефон:
-				</label>
-				<input name="name" id="phone" type="phone" /> <span class="star"></span>
-				<label for="question">
-					Вопрос:
-				</label>
-				<input name="question" id="question" type="text" maxlength="160" required="required" value="Напишите кратко свой вопроc" onfocus="if(this.value=='Напишите кратко свой вопроc'){this.value=''}" onblur="if(this.value==''){this.value='Напишите кратко свой вопроc'}"/> <span class="star">*</span>
-				<p class="rest">Максимальное количество символов - <span>160</span></p>
+				<label for="email"> E-mail: </label>
+				<input name="email" id="email" type="email"/> <span class="star"></span>
+				<label for="phone"> Телефон: </label>
+				<input name="name" id="phone" type="text" /> <span class="star"></span>
+				<label for="question"> Вопрос: </label>
+				<input name="title" id="question" type="text" maxlength="160" required="required" /> <span class="star">*</span>
+				<p class="rest">Максимальное количество символов - <span>160<span></p>
 
 				<label class="l_area" for="area">
 					Дополнительные комментарии к вопросу:
 				</label>
-				<textarea id="area" required="required" value="Опишите вашу проблему более подробно " onfocus="if(this.value=='Опишите вашу проблему более подробно'){this.value=''}" onblur="if(this.value==''){this.value='Опишите вашу проблему более подробно'}"></textarea>
+				<textarea name="text" id="area" required="required"></textarea>
 				<p class="pole"><span class="star">*</span> обязательные для заполнения поля</p>
 				<button type="submit">Задать вопрос</button>
-			</form>
+			<% } %>
 		</li>
 	</ul>
 

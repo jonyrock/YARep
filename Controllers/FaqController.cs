@@ -21,9 +21,7 @@ namespace Cice.Controllers {
 		
 		public ActionResult Index(int id = 1) {
 			int p = (id - 1) * ItemsPerPage;
-			if (p > QuestionService.QuestionsCount || p < 0) {
-				throw new HttpException(404, "Page doesn't exist");
-			}
+			if (p > QuestionService.QuestionsCount || p < 0) throw new HttpException(404, "Page doesn't exist");
 			int q = p + ItemsPerPage;
 			ViewData.Model = QuestionService.GetQuestionsRange(p, q);
 			ViewData["currentPage"] = id;
@@ -31,7 +29,23 @@ namespace Cice.Controllers {
 			return View();
 		}
 
-		[HttpGet]
+		public ActionResult AddQuestion(string name, string email, string phone, string title, string text) {
+			if (String.IsNullOrEmpty(name)) ModelState.AddModelError("name", "Empty name");
+			if (String.IsNullOrEmpty(title)) ModelState.AddModelError("name", "Empty name");
+
+			if (ModelState.IsValid) {
+				var q = new Question();
+				q.AuthorName = name;
+				q.AuthorEmail = email;
+				q.AuthorPhone = phone;
+				q.Title = title;
+				q.Text = text;
+				ViewData["saveStatus"] = QuestionService.SaveQuestion(q);
+			}
+
+			return RedirectToAction("Index");
+		}
+
 		public ActionResult Question(Guid id) {
 			// TODO: null check
 			ViewData.Model = QuestionService.GetFullQuestion(id);

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Web;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Cice.Models {
 
@@ -67,6 +69,7 @@ namespace Cice.Models {
 
 		/// <summary>
 		/// Save new question. Field Question.Id should be null.
+		/// Question.Id will be setted if operation is success.
 		/// </summary>
 		/// <param name="question">For update.</param>
 		/// <returns>Succes or not.</returns>
@@ -81,11 +84,23 @@ namespace Cice.Models {
 
 	public class XmlQuestionService : IQuestionsService {
 
+		public string QuestionsBasePath;
+		
 		public XmlQuestionService() {
-
+			QuestionsBasePath = HttpContext.Current.Server.MapPath("~/App_Data/QuestionsBase.txt");
 		}
 
-		public int QuestionsCount { get { return 54; } }
+		int? questionsCount;
+		public int QuestionsCount {
+			get {
+				if (!questionsCount.HasValue) {
+					TextReader reader = new StreamReader(QuestionsBasePath);
+					questionsCount = int.Parse(reader.ReadLine());
+					reader.Close();
+				}
+				return questionsCount.Value;
+			}
+		}
 
 		static Random rand = new Random();
 
@@ -109,10 +124,13 @@ namespace Cice.Models {
 		public List<Question> GetQuestionsRange(int p, int q) {
 
 			List<Question> qlist = new List<Question>();
+			TextReader reader = new StreamReader(QuestionsBasePath);
+			for (int i = 0; i < p; i++) reader.ReadLine();
 			while (p <= q && p < QuestionsCount) {
 				qlist.Add(GetFullQuestion(Guid.NewGuid()));
 				p++;
 			}
+			reader.Close();
 			return qlist;
 
 		}

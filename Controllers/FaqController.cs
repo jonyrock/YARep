@@ -18,7 +18,6 @@ namespace Cice.Controllers {
 			base.Initialize(requestContext);
 		}
 
-		
 		public ActionResult Index(int id = 1) {
 			int p = (id - 1) * ItemsPerPage;
 			if (p > QuestionService.QuestionsCount || p < 0) throw new HttpException(404, "Page doesn't exist");

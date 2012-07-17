@@ -19,7 +19,13 @@
 		</div>
 	</div>
 	<div class="latest_com">
-		<a class="latest" href="index.html">< Назад к списку</a>
+		<script type="text/javascript">
+			var prevLink = '<%= Url.Action("Index") %>';
+			if (document.referrer.indexOf(window.location.hostname) != -1) {
+				prevLink = "javascript: history.back()";
+			}
+			document.write("<a class=\"latest\" href=\"" + prevLink + "\">< Назад к списку</a>");
+		</script>
 	</div>
 	<div class="comments">
 		<div class="content_container">

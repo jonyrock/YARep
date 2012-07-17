@@ -1,6 +1,5 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<Cice.Models.Question>" %>
 
-
 <% 
 	var question = Model;
 	var dateStr = Html.RenderDate(question.CreationTime);

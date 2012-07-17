@@ -122,6 +122,7 @@
     <Content Include="Views\Faq\Index.aspx" />
     <Content Include="Views\Faq\Question.aspx" />
     <Content Include="Views\Shared\Pages.ascx" />
+    <Content Include="Views\Shared\QuestionInfoLine.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

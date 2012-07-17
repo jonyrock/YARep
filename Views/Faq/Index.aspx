@@ -43,7 +43,7 @@
 				<input name="name" id="phone" type="text" /> <span class="star"></span>
 				<label for="question"> Вопрос: </label>
 				<input name="title" id="question" type="text" maxlength="160" required="required" /> <span class="star">*</span>
-				<p class="rest">Максимальное количество символов - <span>160<span></p>
+				<p class="rest">Максимальное количество символов - <span>160</span></p>
 
 				<label class="l_area" for="area">
 					Дополнительные комментарии к вопросу:

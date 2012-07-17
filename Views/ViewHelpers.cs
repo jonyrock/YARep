@@ -7,7 +7,7 @@ public static class ViewHelpers {
 						 "августа", "сентября", "октября", "ноября", "декабря" };
 
 	public static string RenderDate(this HtmlHelper html, DateTime date) {
-		return date.ToString("dd * yyyy, HH:MM").Replace("*", mounths[date.Month - 1]);
+		return date.ToString("dd * yyyy, HH:mm").Replace("*", mounths[date.Month - 1]);
 	}
 
 }

@@ -32,16 +32,6 @@ namespace Cice.Models {
 
 	}
 
-	public class Comment {
-
-		public string AuthorName { get; set; }
-
-		public string AuthorEmail { get; set; }
-
-		public string Text { get; set; }
-
-	}
-
 	#endregion
 
 	#region Services

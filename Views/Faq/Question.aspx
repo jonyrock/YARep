@@ -32,17 +32,7 @@
 						<a href="#" class="other_com"></a>
 						<h2>Как мне подобрать правильные средства ухода и декоративную косметику?</h2>
 						<div class="talk_req com_info ">
-							<span><%= question.AuthorName %></span>|
-							<% if (Request.IsAuthenticated) { %>
-								<% if (!String.IsNullOrEmpty(question.AuthorEmail)) { %> 
-									<span><%= question.AuthorEmail %></span>| 
-								<% } %>
-								<% if (!String.IsNullOrEmpty(question.AuthorPhone)) { %> 
-									<span><%= question.AuthorPhone %></span>| 
-								<% } %>
-							<% } %> 
-							<time datetime="<%= question.CreationTime.ToShortDateString() %>">
-								<%= question.CreationTime.ToShortDateString() %></time>	
+							<% Html.RenderPartial("QuestionInfoLine", question); %>
 						</div>
 						<p>
 							<%= question.Text %>
@@ -59,7 +49,10 @@
 				<li>
 					<article class = "art_admin_comment">
 						<div class="com_info talk_req">
-							<span class="admin_title"></span>|<time datetime="2012-05-15">15 мая 2012, 17:00</time>
+							<span class="admin_title"></span>|
+							<time datetime="<%= Html.RenderDate(question.ResponseCreationTime) %>"> 
+								<%= Html.RenderDate(question.ResponseCreationTime) %> 
+							</time>
 						</div>
 						<div class="com_content">
 							<div class="answer"> Ответ </div>

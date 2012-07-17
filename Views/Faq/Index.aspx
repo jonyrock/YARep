@@ -73,19 +73,9 @@
 			<li>
 				<article>
 				<a href="<%= link %>" class="other_com"></a>
-				<h2><%= Html.ActionLink(question.Title, "Question", new { id = question.Id }) %></h2>
-				<div class="com_info">
-					<span><%= question.AuthorName %></span>|
-					<% if (Request.IsAuthenticated) { %>
-						<% if (!String.IsNullOrEmpty(question.AuthorEmail)) { %> 
-							<span><%= question.AuthorEmail %></span>| 
-						<% } %>
-						<% if (!String.IsNullOrEmpty(question.AuthorPhone)) { %> 
-							<span><%= question.AuthorPhone %></span>| 
-						<% } %>
-					<% } %> 
-					<time datetime="<%= question.CreationTime.ToShortDateString() %>">
-						<%= question.CreationTime.ToShortDateString() %></time>					
+				<h2> <%= Html.ActionLink(question.Title, "Question", new { id = question.Id }) %> </h2>
+				<div class="com_info"> 
+					<% Html.RenderPartial("QuestionInfoLine", question); %> 
 				</div>
 				<div class="com_content">
 					<% if (String.IsNullOrEmpty(question.Response)) { %>

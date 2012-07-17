@@ -21,10 +21,10 @@
 			<header>
 				<ul class="partners">
 					<li><a class="clinic" href="#"></a></li>
-					<li><a class="elle" href="#"></a></li>
+					<li><a class="elle"   href="#"></a></li>
 					<li><a class="fursie" href="#"></a></li>
 					<li><a class="beauty" href="#"></a></li>
-					<li><a class="gala" href="#"></a></li>
+					<li><a class="gala"   href="#"></a></li>
 				</ul>
 				<a class="m_question" href="#">Задать вопрос специалисту</a>
 				<nav>

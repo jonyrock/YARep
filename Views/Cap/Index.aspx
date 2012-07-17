@@ -9,13 +9,8 @@
 <body>
 	<div>
 	<% Html.BeginForm(); %>
-	  <script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=6LdyJ9QSAAAAAOu4edeDUbpX-JOAkfDBwGUoA2dZ"> 
-	  </script>
-	<noscript>
-	<iframe src="https://www.google.com/recaptcha/api/noscript?k=6LdyJ9QSAAAAAOu4edeDUbpX-JOAkfDBwGUoA2dZ"
-	   height="300" width="500" frameborder="0"></iframe><br>
-	</noscript>
-
+	  <script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=6LdyJ9QSAAAAAOu4edeDUbpX-JOAkfDBwGUoA2dZ"> </script>
+	  <noscript><iframe src="https://www.google.com/recaptcha/api/noscript?k=6LdyJ9QSAAAAAOu4edeDUbpX-JOAkfDBwGUoA2dZ" height="300" width="500" frameborder="0"></iframe><br></noscript>
 	<input type="submit" value="Send" />
 	<% Html.EndForm(); %>
 

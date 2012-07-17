@@ -65,24 +65,42 @@ $(document).ready(function () {
 					<span class="bottom_text">Перейдите по ней, чтобы проверить статус вашего вопроса</span>
 				</div>
 			<% } else { using (Html.BeginForm()) { %>
-			<%  %>
+			<%  foreach (ModelState modelState in ViewData.ModelState.Values) {
+						foreach (ModelError error in modelState.Errors) { %>
+					<strong style="color:red; font-size:smaller; line-height:18px; margin-left: 90px"> <%= error.ErrorMessage %> </strong> <br/>
+				<% }} %>
+			
 				<label for="name"> Имя: </label>
-				<input name="name" id="name" type="text" required="required"/> <span class="star">*</span>
+				<input name="name" id="name" type="text" required="required" value="<%= ViewData["postName"] %>" /> <span class="star">*</span>
 				<label for="email"> E-mail: </label>
-				<input name="email" id="email" type="email"/> <span class="star"></span>
+				<input name="email" id="email" type="email" value="<%= ViewData["postEmail"] %>" /> <span class="star"></span>
 				<label for="phone"> Телефон: </label>
-				<input name="name" id="phone" type="text" /> <span class="star"></span>
+				<input name="name" id="phone" type="text" value="<%= ViewData["postPhone"] %>" /> <span class="star"></span>
 				<label for="question"> Вопрос: </label>
-				<input name="title" id="question" type="text" maxlength="160" required="required" /> <span class="star">*</span>
+				<input name="title" id="question" type="text" maxlength="160" required="required" value="<%= ViewData["postTitle"] %>"  /> <span class="star">*</span>
 				<p class="rest">Максимальное количество символов - <span>160</span></p>
 				
 				<label class="l_area" for="area">
 					Дополнительные комментарии к вопросу:
 				</label>
-				<textarea name="text" id="area" required="required"></textarea>
-				<p class="pole"><span class="star">*</span> обязательные для заполнения поля</p>
-				<a href="http://html12.mdlv.ru/5/capcha.html" class="iframe">Отправить</a>
-				<button type="button">Задать вопрос</button>
+				<textarea name="text" id="area" required="required"><%= ViewData["postText"] %></textarea>
+				<p class="pole"><span class="star">*</span> обязательные для заполнения поля</p> <br />
+				<script type="text/javascript">
+					$(function () {
+						$("#captchaHolder").hide();
+						$("#prePostFormButton").click(function () {
+							$(this).hide();
+							$("#postFormButton").show();
+							$("#captchaHolder").fadeToggle();
+						})
+					});
+				</script>
+				<div id="captchaHolder" style="height:166px; padding-left:50px; display:none">
+					<script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=6LdyJ9QSAAAAAOu4edeDUbpX-JOAkfDBwGUoA2dZ"> </script>
+					<noscript><iframe src="https://www.google.com/recaptcha/api/noscript?k=6LdyJ9QSAAAAAOu4edeDUbpX-JOAkfDBwGUoA2dZ" height="300" width="500" frameborder="0"></iframe><br></noscript>
+				</div>
+				<button type="button" id="prePostFormButton">Задать вопрос</button>
+				<button type="submit" id="postFormButton" style="display:none">Отправить</button>
 			<% }} %>
 		</li>
 	</ul>

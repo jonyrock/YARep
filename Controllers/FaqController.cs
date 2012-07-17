@@ -31,22 +31,41 @@ namespace Cice.Controllers {
 
 		[HttpPost]
 		[ValidateInput(false)]
-		public ActionResult Index(string name, string email, string phone, string title, string text) {
-			if (String.IsNullOrEmpty(name)) ModelState.AddModelError("name", "Empty name");
-			if (String.IsNullOrEmpty(title)) ModelState.AddModelError("name", "Empty name");
+		public ActionResult Index(string name, string email, string phone, string title, 
+			string text, string recaptcha_challenge_field, string recaptcha_response_field) {
+
+			if (String.IsNullOrEmpty(name)) ModelState.AddModelError("name", "Необходимо ввести имя");
+			if (String.IsNullOrEmpty(title)) ModelState.AddModelError("title", "Необходимо ввести вопрос");
+			if (String.IsNullOrEmpty(text)) ModelState.AddModelError("text", "Необходимо ввести текст вопроса");
+
+			Recaptcha.RecaptchaValidator validator = new Recaptcha.RecaptchaValidator();
+			validator.PrivateKey = "6LdyJ9QSAAAAAKs_KEn1ARmTtNJJeJY7eEAZ_SXt";
+			validator.RemoteIP = Request.UserHostAddress;
+			validator.Challenge = recaptcha_challenge_field;
+			validator.Response = recaptcha_response_field;
+
+			if (!validator.Validate().IsValid) {
+				ModelState.AddModelError("text", "Неверный код");
+			}
+
+			var q = new Question();
+			q.AuthorName = Server.HtmlEncode(name);
+			q.AuthorEmail = Server.HtmlEncode(email);
+			q.AuthorPhone = Server.HtmlEncode(phone);
+			q.Title = Server.HtmlEncode(title);
+			q.Text = Server.HtmlEncode(text);
+			q.CreationTime = DateTime.Now;
+
+			ViewData["postName"] = q.AuthorName;
+			ViewData["postEmail"] = q.AuthorEmail;
+			ViewData["postPhone"] = q.AuthorPhone;
+			ViewData["postTitle"] = q.Title;
+			ViewData["postText"] = q.Text;
 
 			if (ModelState.IsValid) {
-				var q = new Question();
-				q.AuthorName = Server.HtmlEncode(name); 
-				q.AuthorEmail = Server.HtmlEncode(email);
-				q.AuthorPhone = Server.HtmlEncode(phone);
-				q.Title = Server.HtmlEncode(title);
-				q.Text = Server.HtmlEncode(text);
-				q.CreationTime = DateTime.Now;
 				ViewData["saveStatus"] = QuestionService.SaveQuestion(q);
 				ViewData["newQId"] = q.Id;
 			}
-
 			return Index();
 		}
 

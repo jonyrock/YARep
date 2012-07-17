@@ -7,6 +7,22 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
+<script type="text/javascript">
+
+$(document).ready(function () {
+	$("a.iframe").fancybox({
+		'width': 350,
+		//'height': 200,
+		'maxHeight': 200,
+		'autoScale': false,
+		'transitionIn': 'none',
+		'transitionOut': 'none',
+		'type': 'iframe'
+	});
+});
+
+</script>
+
 <div class="img_block">
 	
 	<img src="/Content/Images/qaa_saver.jpg" alt="Вопросы и ответы"/>
@@ -59,13 +75,14 @@
 				<label for="question"> Вопрос: </label>
 				<input name="title" id="question" type="text" maxlength="160" required="required" /> <span class="star">*</span>
 				<p class="rest">Максимальное количество символов - <span>160</span></p>
-
+				
 				<label class="l_area" for="area">
 					Дополнительные комментарии к вопросу:
 				</label>
 				<textarea name="text" id="area" required="required"></textarea>
 				<p class="pole"><span class="star">*</span> обязательные для заполнения поля</p>
-				<button type="submit">Задать вопрос</button>
+				<a href="http://html12.mdlv.ru/5/capcha.html" class="iframe">Отправить</a>
+				<button type="button">Задать вопрос</button>
 			<% }} %>
 		</li>
 	</ul>
@@ -100,6 +117,9 @@
 						<p><%= cuttedResponse %> </p>
 					<% } %>
 				</div>
+
+				
+
 				<div class="more_info">
 					<a href="<%= link %>">Подробнее</a>
 				</div>

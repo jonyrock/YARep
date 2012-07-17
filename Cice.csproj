@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Recaptcha, Version=1.0.5.0, Culture=neutral, PublicKeyToken=9afc4d65b28c38c2, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -64,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CapController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -113,12 +115,14 @@
     <Content Include="Docs\TasksBase.txt" />
     <Content Include="Docs\Nodes.txt" />
     <Content Include="Global.asax" />
+    <Content Include="Libs\Recaptcha.dll" />
     <Content Include="Scripts\fancybox\jquery.fancybox.css" />
     <Content Include="Scripts\fancybox\jquery.fancybox.pack.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Docs\TasksCurrent.txt" />
+    <Content Include="Views\Cap\Index.aspx" />
     <Content Include="Views\Faq\Index.aspx" />
     <Content Include="Views\Faq\Question.aspx" />
     <Content Include="Views\Shared\Pages.ascx" />

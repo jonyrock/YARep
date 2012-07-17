@@ -1,8 +1,5 @@
-﻿
-using System;
+﻿using System;
 using System.Web.Mvc;
-
-
 
 public static class ViewHelpers {
 

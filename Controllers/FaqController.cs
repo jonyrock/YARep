@@ -18,6 +18,7 @@ namespace Cice.Controllers {
 			base.Initialize(requestContext);
 		}
 
+		[HttpGet]
 		public ActionResult Index(int id = 1) {
 			int p = (id - 1) * ItemsPerPage;
 			if (p > QuestionService.QuestionsCount || p < 0) throw new HttpException(404, "Page doesn't exist");
@@ -28,8 +29,9 @@ namespace Cice.Controllers {
 			return View();
 		}
 
+		[HttpPost]
 		[ValidateInput(false)]
-		public ActionResult AddQuestion(string name, string email, string phone, string title, string text) {
+		public ActionResult Index(string name, string email, string phone, string title, string text) {
 			if (String.IsNullOrEmpty(name)) ModelState.AddModelError("name", "Empty name");
 			if (String.IsNullOrEmpty(title)) ModelState.AddModelError("name", "Empty name");
 
@@ -42,9 +44,10 @@ namespace Cice.Controllers {
 				q.Text = Server.HtmlEncode(text);
 				q.CreationTime = DateTime.Now;
 				ViewData["saveStatus"] = QuestionService.SaveQuestion(q);
+				ViewData["newQId"] = q.Id;
 			}
 
-			return RedirectToAction("Index");
+			return Index();
 		}
 
 		[HttpGet]
@@ -55,6 +58,7 @@ namespace Cice.Controllers {
 		}
 
 		[HttpPost]
+		[Authorize]
 		[ValidateInput(false)]
 		public ActionResult Question(Guid id, string response) {
 			var q = QuestionService.GetFullQuestion(id);

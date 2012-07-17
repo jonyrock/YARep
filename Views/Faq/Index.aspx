@@ -33,8 +33,23 @@
 			<span class="qaa_admin">С уважением CICE cosmetics !</span>
 		</li>
 		<li>
-			<%= ViewData["saveStatus"] %>
-			<% using (Html.BeginForm("AddQuestion", "Faq")) { %>
+			<% if(ViewData["saveStatus"] != null && (bool)ViewData["saveStatus"]  == true) { %>
+				<div class="form_sent">
+					<h2>Спасибо за Ваш интерес к косметике Сicé</h2>
+					<p>
+						Наши специалисты постараются ответить<br>
+						на Ваш вопрос как можно скорее
+					</p>
+					<span>Постоянная ссылка на вопрос:</span> <br /><br />
+					<!-- <button class="copy_btn" type="button">Скопировать ссылку</button> -->
+					<div class="your_link">
+						<% var link = Url.Action("Question", new { id = ViewData["newQId"] }); %>
+						<a href="<%= link %>"><%= link %></a>
+					</div>
+					<span class="bottom_text">Перейдите по ней, чтобы проверить статус вашего вопроса</span>
+				</div>
+			<% } else { using (Html.BeginForm()) { %>
+			<%  %>
 				<label for="name"> Имя: </label>
 				<input name="name" id="name" type="text" required="required"/> <span class="star">*</span>
 				<label for="email"> E-mail: </label>
@@ -51,7 +66,7 @@
 				<textarea name="text" id="area" required="required"></textarea>
 				<p class="pole"><span class="star">*</span> обязательные для заполнения поля</p>
 				<button type="submit">Задать вопрос</button>
-			<% } %>
+			<% }} %>
 		</li>
 	</ul>
 
@@ -64,10 +79,7 @@
 		 string link = Url.Action("Question", new { id = question.Id });
 		 string cuttedResponse = "";
 		 if (!String.IsNullOrEmpty(question.Response)) {
-			 if (question.Response.Length > 255)
-				 cuttedResponse = question.Response.Substring(0, 252) + "...";
-			 else
-				 cuttedResponse = question.Response;
+			 cuttedResponse = Html.TakeLimitedText(question.Response);
 		 }
 	%>
 			<li>
@@ -77,6 +89,9 @@
 				<div class="com_info"> 
 					<% Html.RenderPartial("QuestionInfoLine", question); %> 
 				</div>
+				<p>
+					<%= Html.TakeLimitedText(question.Text) %>
+				</p>
 				<div class="com_content">
 					<% if (String.IsNullOrEmpty(question.Response)) { %>
 						<div class="no_answer"> Ответа пока нет </div>

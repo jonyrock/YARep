@@ -26,17 +26,16 @@ a:hover{ color:#000; text-decoration:underline }
 #centerHolder{ width:844px; margin:auto; }
 #topMenuLine{ height:27px; }
 
-#topMenuLine a, #topMenuLine h1{ display:block; float:left; line-height:21px; color:#505050; width:120px; font-size:11px; 
+#topMenuLine a, #topMenuLine h1{ display:block; float:left; line-height:21px; color:#505050; width:120px; font-family:Tahoma,'Geneva',sans-serif; font-size:12px;
                 border-bottom:7px solid #ccc; text-align:center; background:none; font-weight:normal; padding:0px; margin:0px }
                 
-#topMenuLine a:hover , #topMenuLine h1 { text-decoration:none; color:#fff; }
+#topMenuLine a:hover , #topMenuLine h1 { text-decoration:none; color:#fff;  }
 #topMenuLine .c1 {border-bottom-color:#de0000} #topMenuLine .c1:hover, #topMenuLine h1.c1  {background:#de0000}
 #topMenuLine .c2 {border-bottom-color:#07a7bb} #topMenuLine .c2:hover, #topMenuLine h1.c2  {background:#07a7bb}
 #topMenuLine .c3 {border-bottom-color:#85b700; width:124px} #topMenuLine .c3:hover, #topMenuLine h1.c3  {background:#85b700}
 #topMenuLine .c4 {border-bottom-color:#7b0055} #topMenuLine .c4:hover, #topMenuLine h1.c4  {background:#7b0055}
 #topMenuLine .c5 {border-bottom-color:#005960} #topMenuLine .c5:hover, #topMenuLine h1.c5  {background:#005960}
-#topMenuLine .c6 {border-bottom-color:#957aa6} #topMenuLine .c6:hover, #topMenuLine h1.c6  {background:#957aa6}
-#topMenuLine .c6 {border-bottom-color:#957aa6} #topMenuLine .c6:hover, #topMenuLine h1.c6  {background:#957aa6}
+#topMenuLine .c6 {border-bottom-color:#477CD4} #topMenuLine .c6:hover, #topMenuLine h1.c6  {background:#477CD4}
 #topMenuLine .c7 {border-bottom-color:#626522} #topMenuLine .c7:hover, #topMenuLine h1.c7  {background:#626522}
 
 #topSliderHolder{ width:100%; height:240px; position:relative; vertical-align:middle;   }
@@ -154,10 +153,13 @@ a:hover{ color:#000; text-decoration:underline }
 
 
 /* FAQ styles */
+#faqContent p{ font-family:Tahoma,'Geneva',sans-serif; font-size:12px }
 #faqContent ul{ margin:0px; padding:0px; }
 #faqContent{position:relative;}#faqContent .latest_com{position:relative;border-top:2px ridge #d0cfcf;margin-top:20px;}#faqContent .latest_com a{display:block;width:109px;height:28px;background-image:url(../images/back_sprite.png);background-repeat:no-repeat;background-position:0 1px;font-family:Tahoma,'Geneva',sans-serif;font-size:11px;text-decoration:none;text-align:center;line-height:28px;color:#2e3b41;margin:20px 0 0 50px;}#faqContent .latest_com a:hover{background-position:0 -30px;}
 #faqContent .img_block{position:relative;}#faqContent .img_block .logo{position:absolute;top:40px;left:0;display:block;height:153px;width:279px;background:url(../images/logo.png) no-repeat;text-decoration:none;color:#1f1e21;font-family:Tahoma,'Geneva',sans-serif;font-size:80px;padding:10px 0 0 45px;}#faqContent .img_block .logo span{font-size:22px;margin:-10px 0 0 8px;display:block;color:#7d8286;}
-#faqContent .content_container{position:relative;padding:0 20px 0 50px;}#faqContent .content_container .title_qaa{position:relative;margin-top:33px;}#faqContent .content_container .title_qaa h1{display:inline-block;font-size:24px;color:#4d78b2;font-family:'Segoe UI',Tahoma,Arial,Helvetica,sans-Serif;font-weight:normal;}
+#faqContent .content_container{position:relative;padding:0 20px 0 50px;}
+#faqContent .content_container .title_qaa{position:relative;margin-top:33px;}
+#faqContent .content_container .title_qaa h1{display:inline-block;font-size:24px;color:#4d78b2;font-family:'Segoe UI',Tahoma,Arial,Helvetica,sans-Serif;font-weight:normal;}
 #faqContent .content_container .title_qaa img{padding:0 0 30px 5px;vertical-align:middle;}
 #faqContent .qaa_content{position:relative;border-bottom:2px ridge #d0cfcf;overflow:hidden;}#faqContent .qaa_content ul{list-style:none;}#faqContent .qaa_content ul li{float:left;width:49%;background:url(../images/qaa_border.png) no-repeat left 10px;}#faqContent .qaa_content ul li:first-child{background:none;}
 #faqContent .qaa_content ul li p{font-size:14px;font-family:'Segoe UI',Tahoma,Arial,Helvetica,sans-Serif;padding:13px 20px 2px 50px;}
@@ -171,7 +173,7 @@ a:hover{ color:#000; text-decoration:underline }
 #faqContent .qaa_content ul li form .star{font-family:'Calibri','Segoe UI',Tahoma,Arial,Helvetica,sans-Serif;font-size:18px;color:#bd5c5c;vertical-align:top;}
 #faqContent .qaa_content ul li form button{float:right;height:22px;width:105px;background-image:url(../images/btn_sprite.png);background-repeat:no-repeat;background-position:-5px -289px;text-transform:uppercase;text-align:center;border:0 none;outline:none;font-size:10px;color:#ffffff;margin:15px 15px 18px 0px;}#faqContent .qaa_content ul li form button:hover{background-position:-4px -323px;}
 #faqContent .qaa_content ul li form .rest{padding:0;font-size:10px;font-family:Tahoma,'Geneva',sans-serif;color:#868484;margin:-3px 0 0 90px;}#faqContent .qaa_content ul li form .rest span{color:#e55c5c;}
-#faqContent .qaa_content ul li form .pole{padding:16px 0 0 20px;font-size:12px;font-family:'Calibri','Segoe UI',Tahoma,Arial,Helvetica,sans-Serif;float:left;}#faqContent .qaa_content ul li form .pole span{font-size:14px;}
+#faqContent .qaa_content ul li form .pole{padding:7px 0 0 20px;font-size:12px;font-family:'Calibri','Segoe UI',Tahoma,Arial,Helvetica,sans-Serif;float:left;}#faqContent .qaa_content ul li form .pole span{font-size:14px;}
 #faqContent .qaa_content ul li .form_sent{position:relative;color:#393939;font-size:14px;padding:0 0 0 40px;}#faqContent .qaa_content ul li .form_sent h2{font-family:'Segoe UI',Tahoma,Arial,Helvetica,sans-Serif;font-size:18px;font-weight:normal;margin:10px 0 0 0;}
 #faqContent .qaa_content ul li .form_sent p{font-size:14px;padding:5px 0 30px 0;}
 #faqContent .qaa_content ul li .form_sent .copy_btn{width:138px;height:28px;background-image:url(../images/copy_btn.png);font-family:Tahoma,'Geneva',sans-serif;border:0 none;font-size:11px;margin:-5px 0 5px 7px;background-color:transparent;}#faqContent .qaa_content ul li .form_sent .copy_btn:hover{background:url(../images/copy_btn_h.png) no-repeat;}
@@ -208,6 +210,7 @@ a:hover{ color:#000; text-decoration:underline }
 #faqContent .talk ul{margin-bottom:40px;list-style:none;}#faqContent .talk ul li{border:0 none;}#faqContent .talk ul li p{font-family:Tahoma,'Geneva',sans-serif;font-size:12px;color:#151515;padding-right:60px;}
 #faqContent .talk ul li .admin_comment{color:#151515;}
 #faqContent .comments ul li .talk_req .admin_title{ display:block; padding:0px; margin-right:5px; position:relative; top:-5px; float:left; width:53px; height:21px; background:url("../Images/cice_mini_logo.gif") }
+#faqContent button{ cursor:pointer }
 .art_admin_comment { margin-left: -9px; margin-top: -14px; padding: 1px 9px 9px; }
 .art_admin_comment more_info{ margin-top:18px; }
 .comments textarea{width:620px;height:125px;border:1px solid #bdbdbd;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;padding:5px 0 0 5px;font-family:Arial,Helvetica,sans-Serif;font-size:12px;}

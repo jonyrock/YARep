@@ -36,26 +36,10 @@ namespace Cice.Models {
 	// code unit testable.
 
 	public interface IMembershipService {
-		int MinPasswordLength { get; }
 		bool ValidateUser(string userName, string password, string unamePassPassHash);
 	}
 
 	public class AccountMembershipService : IMembershipService {
-		private readonly MembershipProvider _provider;
-
-		public AccountMembershipService()
-			: this(null) {
-		}
-
-		public AccountMembershipService(MembershipProvider provider) {
-			_provider = provider ?? Membership.Provider;
-		}
-
-		public int MinPasswordLength {
-			get {
-				return _provider.MinRequiredPasswordLength;
-			}
-		}
 
 		public bool ValidateUser(string userName, string password, string unamePassPassHash) {
 			if (String.IsNullOrEmpty(userName)) throw new ArgumentException("Value cannot be null or empty.", "userName");

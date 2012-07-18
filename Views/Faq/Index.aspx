@@ -3,21 +3,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="PagePlaceHolder" runat="server">
 
-<script type="text/javascript">
-
-$(document).ready(function () {
-	$("a.iframe").fancybox({
-		'width': 350,
-		//'height': 200,
-		'maxHeight': 200,
-		'autoScale': false,
-		'transitionIn': 'none',
-		'transitionOut': 'none',
-		'type': 'iframe'
-	});
-});
-
-</script>
 
 <div id="faqContent">
 
@@ -65,7 +50,7 @@ $(document).ready(function () {
 			<% } else { using (Html.BeginForm()) { %>
 			<%  foreach (ModelState modelState in ViewData.ModelState.Values) {
 						foreach (ModelError error in modelState.Errors) { %>
-					<strong style="color:red; font-size:smaller; line-height:18px; margin-left: 90px"> <%= error.ErrorMessage %> </strong> <br/>
+					<strong style="color:red; font-size:larger; line-height:18px; margin-left: 90px"> <%= error.ErrorMessage %> </strong> <br/>
 				<% }} %>
 			
 				<label for="name"> Имя: </label>
@@ -81,7 +66,7 @@ $(document).ready(function () {
 				<label class="l_area" for="area">
 					Дополнительные комментарии к вопросу:
 				</label>
-				<textarea name="text" id="area" required="required"><%= ViewData["postText"] %></textarea>
+				<textarea name="text" id="area" required="required"><%= ViewData["postText"] %></textarea><span class="star"> *</span>
 				<p class="pole"><span class="star">*</span> обязательные для заполнения поля</p> <br />
 				<script type="text/javascript">
 					$(function () {
@@ -99,7 +84,7 @@ $(document).ready(function () {
 					<noscript><iframe src="https://www.google.com/recaptcha/api/noscript?k=<%=publicKey %>" height="300" width="500" frameborder="0"></iframe><br></noscript>
 				</div>
 				<button type="button" id="prePostFormButton">Задать вопрос</button>
-				<button type="submit" id="postFormButton" style="display:none">Отправить</button>
+				<button type="submit" id="postFormButton" style="display:none; margin-top:20px">Отправить</button>
 			<% }} %>
 		</li>
 	</ul>

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using Cice.Models;
+using System.Configuration;
 
 namespace Cice.Controllers {
 
@@ -35,7 +36,8 @@ namespace Cice.Controllers {
 		[HttpPost]
 		public ActionResult Index(LogOnModel model, string returnUrl) {
 			if (ModelState.IsValid) {
-				if (MembershipService.ValidateUser(model.UserName, model.Password)) {
+				if (MembershipService.ValidateUser(model.UserName, model.Password, 
+					ConfigurationManager.AppSettings["admin_password_double_hash"])) {
 					FormsService.SignIn(model.UserName, model.RememberMe);
 					if (!String.IsNullOrEmpty(returnUrl)) {
 						return Redirect(returnUrl);

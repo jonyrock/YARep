@@ -37,7 +37,7 @@ namespace Cice.Models {
 
 	public interface IMembershipService {
 		int MinPasswordLength { get; }
-		bool ValidateUser(string userName, string password);
+		bool ValidateUser(string userName, string password, string unamePassPassHash);
 	}
 
 	public class AccountMembershipService : IMembershipService {
@@ -57,11 +57,12 @@ namespace Cice.Models {
 			}
 		}
 
-		public bool ValidateUser(string userName, string password) {
+		public bool ValidateUser(string userName, string password, string unamePassPassHash) {
 			if (String.IsNullOrEmpty(userName)) throw new ArgumentException("Value cannot be null or empty.", "userName");
 			if (String.IsNullOrEmpty(password)) throw new ArgumentException("Value cannot be null or empty.", "password");
-			return true;
-			//return _provider.ValidateUser(userName, password);
+			if (String.IsNullOrEmpty(unamePassPassHash)) throw new ArgumentException("Value cannot be null or empty.", "unamePassPassHash");
+			var hash = FormsAuthentication.HashPasswordForStoringInConfigFile(userName + password + "|" + password, "MD5");
+			return unamePassPassHash.Equals(hash);
 		}
 
 	}

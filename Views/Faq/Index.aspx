@@ -95,9 +95,10 @@ $(document).ready(function () {
 						})
 					});
 				</script>
-				<div id="captchaHolder" style="height:166px; padding-left:50px; display:none">
-					<script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=6LdyJ9QSAAAAAOu4edeDUbpX-JOAkfDBwGUoA2dZ"> </script>
-					<noscript><iframe src="https://www.google.com/recaptcha/api/noscript?k=6LdyJ9QSAAAAAOu4edeDUbpX-JOAkfDBwGUoA2dZ" height="300" width="500" frameborder="0"></iframe><br></noscript>
+				<div id="captchaHolder" style="height:166px; padding-left:84px; display:none">
+					<% var publicKey = ConfigurationManager.AppSettings["recaptha_public_key"]; %>
+					<script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=<%=publicKey %>"> </script>
+					<noscript><iframe src="https://www.google.com/recaptcha/api/noscript?k=<%=publicKey %>" height="300" width="500" frameborder="0"></iframe><br></noscript>
 				</div>
 				<button type="button" id="prePostFormButton">Задать вопрос</button>
 				<button type="submit" id="postFormButton" style="display:none">Отправить</button>

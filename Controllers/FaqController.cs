@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Cice.Models;
+using System.Configuration;
 
 namespace Cice.Controllers {
 	public class FaqController : Controller {
@@ -39,7 +40,7 @@ namespace Cice.Controllers {
 			if (String.IsNullOrEmpty(text)) ModelState.AddModelError("text", "Необходимо ввести текст вопроса");
 
 			Recaptcha.RecaptchaValidator validator = new Recaptcha.RecaptchaValidator();
-			validator.PrivateKey = "6LdyJ9QSAAAAAKs_KEn1ARmTtNJJeJY7eEAZ_SXt";
+			validator.PrivateKey = ConfigurationManager.AppSettings["recaptha_private_key"];
 			validator.RemoteIP = Request.UserHostAddress;
 			validator.Challenge = recaptcha_challenge_field;
 			validator.Response = recaptcha_response_field;

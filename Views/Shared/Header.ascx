@@ -16,14 +16,49 @@
 	
 
 	<div id="topMenuLine">
-		
-		<a href="/" class="c1" id="c1" runat="server">Главная</a>
-		<a href="<%= Url.Action("About", "Home") %>" class="c2" id="c2">О cicé</a>
-		<a href="<%= Url.Action("Active", "Home") %>" class="c3" id="c3">Активные вещества</a>
-		<a href="<%= Url.Action("Formula", "Home") %>" class="c4" id="c4">Формула</a>
-		<a href="<%= Url.Action("Goods", "Home") %>" class="c5" id="c5">Продукты</a>
-		<a href="<%= Url.Action("Index", "Faq") %>" class="c6" id="c6">Вопрорсы и ответы</a>
-		<a href="<%= Url.Action("Index", "Theory") %>" class="c7" id="c7">Теория и практика</a>
+
+<% Html.RenderPartial("MaybeSelectedLink", new ViewHelpers.MaybeSelectedLinkModel() {
+		 Index = 1,
+		 Text = "Главная",
+		 Url = "/"
+	 }); 
+%>
+<% Html.RenderPartial("MaybeSelectedLink", new ViewHelpers.MaybeSelectedLinkModel() {
+		 Index = 2,
+		 Text = "О cicé",
+		 Url = Url.Action("About", "Home")
+	 });
+%>
+<% Html.RenderPartial("MaybeSelectedLink", new ViewHelpers.MaybeSelectedLinkModel() {
+		 Index = 3,
+		 Text = "Активные вещества",
+		 Url = Url.Action("Active", "Home")
+	 });
+%>
+<% Html.RenderPartial("MaybeSelectedLink", new ViewHelpers.MaybeSelectedLinkModel() {
+		 Index = 4,
+		 Text = "Формула",
+		 Url = Url.Action("Formula", "Home")
+	 });
+%>
+<% Html.RenderPartial("MaybeSelectedLink", new ViewHelpers.MaybeSelectedLinkModel() {
+		 Index = 5,
+		 Text = "Продукты",
+		 Url = Url.Action("Goods", "Home")
+	 });
+%>
+<% Html.RenderPartial("MaybeSelectedLink", new ViewHelpers.MaybeSelectedLinkModel() {
+		 Index = 6,
+		 Text = "Вопросы и ответы",
+		 Url = Url.Action("Index", "Faq")
+	 });
+%>
+<% Html.RenderPartial("MaybeSelectedLink", new ViewHelpers.MaybeSelectedLinkModel() {
+		 Index = 7,
+		 Text = "Теория и практика",
+		 Url = Url.Action("Index", "Theory")
+	 });
+%>
 				
 	</div>
 

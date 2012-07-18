@@ -29,4 +29,10 @@ public static class ViewHelpers {
 			+ " <span id=\"logo\" style=\"background:url('/Content/Images/logo.png')\"></span></div>";
 	}
 
+	public class MaybeSelectedLinkModel{
+		public int Index { get; set; }
+		public string Text { get; set; }
+		public string Url { get; set; }
+	}
+
 }

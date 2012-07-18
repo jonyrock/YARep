@@ -66,7 +66,7 @@
 				<label class="l_area" for="area">
 					Дополнительные комментарии к вопросу:
 				</label>
-				<textarea name="text" id="area" required="required"><%= ViewData["postText"] %></textarea><span class="star"> *</span>
+				<textarea rows="3" name="text" id="area" required="required"><%= ViewData["postText"] %></textarea><span class="star"> *</span>
 				<p class="pole"><span class="star">*</span> обязательные для заполнения поля</p> <br />
 				<script type="text/javascript">
 					$(function () {

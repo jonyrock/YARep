@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" MasterPageFile="~/Views/Shared/MasterPage.master" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="PagePlaceHolder" Runat="Server">
+	
+	<%= Html.SliderStatic("/Content/images/slide7.jpg")%>
+
+	<div id="pageTextHolder" class="innerpage" style="position:relative; padding-top:155px;">
+		
+		<div class="olive" style="background:url('/Content/Images/theory_title.jpg') no-repeat right; 
+			position:absolute;
+			top:25px; left:35px; 
+			width:455px; height:106px">
+			<h2 class="olive" style="line-height:70px; margin-top:30px;">Теория и практика</h2>
+		</div>
+
+		<div style="float:left; width:255px;">
+		  <% Html.RenderPartial("TheoryMenu", "2"); %>
+		</div>
+
+		<div style="float:left; text-align:justify; margin-left:40px; width:480px" id="newsPreview">
+			
+			<asp:ContentPlaceHolder ID="InnerPage" runat="server"></asp:ContentPlaceHolder>
+			
+		</div>
+
+		<div style="clear:both;"></div>
+		
+	</div>
+
+	
+
+	<% Html.RenderPartial("HexMenu", "/Content/images/grad7.jpg"); %>
+
+</asp:Content>

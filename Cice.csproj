@@ -214,7 +214,11 @@
     <Content Include="Views\Shared\HexMenu.ascx" />
     <Content Include="Views\Shared\Pages.ascx" />
     <Content Include="Views\Shared\QuestionInfoLine.ascx" />
+    <Content Include="Views\Theory\Daily.aspx" />
+    <Content Include="Views\Theory\Homecare.aspx" />
     <Content Include="Views\Theory\Index.aspx" />
+    <Content Include="Views\Theory\Manual.aspx" />
+    <Content Include="Views\Theory\TheoryMenu.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

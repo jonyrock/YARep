@@ -1,33 +1,11 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/MasterPage.master" Inherits="System.Web.Mvc.ViewPage" %>
+﻿<%@ Page Language="C#" MasterPageFile="MenuMaster.master" Inherits="System.Web.Mvc.ViewPage" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="PagePlaceHolder" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="InnerPage" Runat="Server">
 	
-	<%= Html.SliderStatic("/Content/images/slide7.jpg")%>
-	
-	<div id="pageTextHolder" class="innerpage" style="position:relative; padding-top:155px;">
-		
-		<div class="olive" style="background:url('/Content/Images/theory_title.jpg') no-repeat right; position:absolute;
-			top:25px; left:35px; 
-			width:455px; height:106px">            
-			<h2 class="olive" style="line-height:70px; margin-top:30px;">Теория и практика</h2>
-		</div>
+<div>
 
-		<div style="float:left; width:255px;">
-			
-			<%--<Cice:TheoryMenu runat="server" SelectedPage="1" />--%>
-		  
-		</div>
+	<p style="margin:0px;" class="olive"><strong>ПО УТРАМ И ВЕЧЕРАМ.</strong></p>
 
-		<div style="float:left; text-align:justify; margin-left:40px; margin-top:14px; width:480px" id="newsPreview">
-			
-			<div>
-				<table>
-					<tr>
-					  
-				  
-							
-							<p style="margin:0px;" class="olive"><strong>ПО УТРАМ И ВЕЧЕРАМ.</strong></p>
-<br/>
 							<p style="margin-top:0px">
 								Вредные вещества, скопившиеся за день и остатки макияжа, могут нанести серьезный вред здоровью кожи. 
 Если  ночью мы спим, декоративной косметикой не пользуемся,  то может быть утром можно обойтись и без пенки для очищения кожи? 
@@ -38,30 +16,22 @@
 							</p>
 						 
 			   
-					</tr>
-				</table>
+					
 			</div>
 			<hr />
 			<div>
-				<table>
-					<tr>
-					 
-					   
-							
-							<p style="margin:0px;" class="olive"><strong>ЛАЗЕР И ФОТО: ДРУГОЙ АЛЬТЕРНАТИВЫ НЕТ</strong></p>
-<br/>
-							<p style="margin-top:0px">
-								При всех различиях лазерных и фото-методов, требования к  уходу за кожей после этих процедур, одинаковые. Если питание и увлажнение кожи  не будут усилены, то омолаживающий эффект терапии будет снижен. В первые две недели для увеличения эффекта от процедуры, к основному уходу ежедневно добавляется   гидромаска  и омолаживающая сыворотка Cicé. Чтобы избежать нежелательной пигментации, необходимо  так же защищать кожу от ультрафиолета, в течение минимум одного месяца, используя солнцезащитные крема.
-							</p>
+		
+	<p style="margin:0px;" class="olive"><strong>ЛАЗЕР И ФОТО: ДРУГОЙ АЛЬТЕРНАТИВЫ НЕТ</strong></p> <br/>
+	<p style="margin-top:0px">
+		При всех различиях лазерных и фото-методов, требования к  уходу за кожей после этих процедур, одинаковые. Если питание и увлажнение кожи  не будут усилены, то омолаживающий эффект терапии будет снижен. В первые две недели для увеличения эффекта от процедуры, к основному уходу ежедневно добавляется   гидромаска  и омолаживающая сыворотка Cicé. Чтобы избежать нежелательной пигментации, необходимо  так же защищать кожу от ультрафиолета, в течение минимум одного месяца, используя солнцезащитные крема.
+	</p>
 							
 					  
-					</tr>
-				</table>
+					
 			</div>
 			<hr />
 			<div>
-				<table>
-					<tr>
+				
 					   
 							
 							<p style="margin:0px;" class="olive"><strong>УКОЛЫ ИЛИ НЕ УКОЛЫ?</strong></p>
@@ -75,13 +45,10 @@
 							</p>
 						   
 				   
-					</tr>
-				</table>
 			</div>
 			<hr />
 			<div>
-				<table>
-					<tr>
+
 						
 							
 							<p style="margin:0px;" class="olive"><strong>КАКОЙ РУССКИЙ НЕ ЛЮБИТ...</strong></p>
@@ -94,13 +61,10 @@
 						   
 
 
-					</tr>
-				</table>
 			</div>
 <hr />
 <div>
-				<table>
-					<tr>
+
 					 
 							
 							<p style="margin:0px;" class="olive"><strong>ПОЧЕМУ И ДЛЯ МУЖЧИНЫ ТОЖЕ?</strong></p>
@@ -114,21 +78,8 @@
 						   
 
 
-					   
-					</tr>
-				</table>
+
 			</div>
-		</div>
-
-
-
-
-
-		<div style="clear:both;"></div>
-		
-	</div>
-
-	<% Html.RenderPartial("HexMenu", "/Content/images/grad7.jpg"); %>
 
 </asp:Content>
 

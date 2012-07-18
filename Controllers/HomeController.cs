@@ -13,6 +13,6 @@ namespace Cice.Controllers {
 		public ActionResult Formula() { return View(); }
 		public ActionResult Goods() { return View(); }
 		public ActionResult Partners() { return View(); }
-		public ActionResult Theory() { return View(); }
+		public ActionResult Cice() { return View(); }	
 	}
 }

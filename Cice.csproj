@@ -67,6 +67,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TheoryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -203,16 +204,17 @@
     <Content Include="Views\Faq\Index.aspx" />
     <Content Include="Views\Faq\Question.aspx" />
     <Content Include="Views\Home\Active.aspx" />
+    <Content Include="Views\Home\Cice.aspx" />
     <Content Include="Views\Home\Formula.aspx" />
     <Content Include="Views\Home\Goods.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\Partners.aspx" />
-    <Content Include="Views\Home\Theory.aspx" />
     <Content Include="Views\Shared\Footer.ascx" />
     <Content Include="Views\Shared\Header.ascx" />
     <Content Include="Views\Shared\HexMenu.ascx" />
     <Content Include="Views\Shared\Pages.ascx" />
     <Content Include="Views\Shared\QuestionInfoLine.ascx" />
+    <Content Include="Views\Theory\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

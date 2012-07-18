@@ -1,11 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" 
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MasterPage.master" 
 	Inherits="System.Web.Mvc.ViewPage<List<Cice.Models.Question>>" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Index
-</asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="PagePlaceHolder" runat="server">
 
 <script type="text/javascript">
 
@@ -22,6 +18,8 @@ $(document).ready(function () {
 });
 
 </script>
+
+<div id="faqContent">
 
 <div class="img_block">
 	
@@ -149,5 +147,7 @@ $(document).ready(function () {
 	</div>
 </div>
 <% Html.RenderPartial("Pages", ViewData); %>
+
+</div>
 
 </asp:Content>

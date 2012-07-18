@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Cice.Models.Question>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MasterPage.master" 
+Inherits="System.Web.Mvc.ViewPage<Cice.Models.Question>" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	<%= Model.Title %>
-</asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="PagePlaceHolder" runat="server">
 	
+	<div id="faqContent">
+
 	<% var question = Model; %>
 
 	<div class="img_block">
@@ -71,7 +71,7 @@
 
 				<% if (Request.IsAuthenticated) { %>
 				<li>
-					<% if (ViewData["saved"] != null) { %> <strong style="color:Green; font-size:smaller"> Ответ изменен. </strong>  <% } %>
+					<% if (ViewData["saved"] != null) { %> <strong style="color:Green; font-size:larger"> Ответ изменен. </strong>  <% } %>
 					<% using (Html.BeginForm()) { %>
 						<%= Html.TextArea("response", Model.Response) %>
 						<p> <button class="b_answer" type="submit" title="Пустой ответ - удаление ответа." >Ответить</button> </p>
@@ -87,5 +87,7 @@
 		</div>
 
 	</div>
+
+</div>
 
 </asp:Content>

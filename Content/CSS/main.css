@@ -1,0 +1,153 @@
+﻿
+html,body{ background:#fff; margin:0px; padding:0px; font-family:Verdana; font-size:10px; 
+           min-width:888px; cursor:default; }
+body{ background:url('../images/backGradline.gif') repeat-y center  }
+img{ border:0px;}
+a{ color:#3c3c3c; text-decoration:none;}
+a:hover{ color:#000; text-decoration:underline }
+.hover a{ font-weight:bold; }
+       
+
+#topHolder{ width:844px; padding:0px 22px; margin:auto; background:#fff; position:relative; }
+#topHolder .grCo { position:absolute; bottom:-28px; width:22px; height:42px;}
+#topHolder .grl{ left:0px; background:url('../images/backGradlineTL.jpg')}
+#topHolder .grr{ right:0px; background:url('../images/backGradlineTR.jpg')}
+      
+#topLinksLine{ height:32px; padding:13px 0px 33px 0px;  }
+#logosHolder{ width:400px; height:35px; background:url('../images/topLogos.gif') no-repeat; float:left; display:block; position:relative; }
+#logosHolder a{ display:block; float:left; height:35px; width:77px; }
+
+
+
+#topLittleTinks{ width:374px; height:35px; padding-right:16px; line-height:35px; 
+                 float:right; color:#8b8b8b; text-align:right; }
+#topLittleTinks img{ vertical-align:middle; padding-left:8px }
+
+#centerHolder{ width:844px; margin:auto; }
+#topMenuLine{ height:27px; }
+
+#topMenuLine a, #topMenuLine h1{ display:block; float:left; line-height:21px; color:#505050; width:144px; font-size:11px; 
+                border-bottom:7px solid #ccc; text-align:center; background:none; font-weight:normal; padding:0px; margin:0px }
+                
+#topMenuLine a:hover , #topMenuLine h1 { text-decoration:none; color:#fff; }
+#topMenuLine .c1 {border-bottom-color:#de0000} #topMenuLine .c1:hover, #topMenuLine h1.c1  {background:#de0000}
+#topMenuLine .c2 {border-bottom-color:#07a7bb} #topMenuLine .c2:hover, #topMenuLine h1.c2  {background:#07a7bb}
+#topMenuLine .c3 {border-bottom-color:#85b700; width:124px} #topMenuLine .c3:hover, #topMenuLine h1.c3  {background:#85b700}
+#topMenuLine .c4 {border-bottom-color:#7b0055} #topMenuLine .c4:hover, #topMenuLine h1.c4  {background:#7b0055}
+#topMenuLine .c5 {border-bottom-color:#005960} #topMenuLine .c5:hover, #topMenuLine h1.c5  {background:#005960}
+#topMenuLine .c6 {border-bottom-color:#957aa6} #topMenuLine .c6:hover, #topMenuLine h1.c6  {background:#957aa6}
+#topMenuLine .c7 {border-bottom-color:#626522} #topMenuLine .c7:hover, #topMenuLine h1.c7  {background:#626522}
+
+#topSliderHolder{ width:100%; height:240px; position:relative; vertical-align:middle;   }
+#slidesContentHolder{ width:453px; padding:20px 20px; height:195px; font-size:18px;
+                      position:absolute; right:0px;  top:0px; font-family:Segoe UI Light, Segoe UI, Arial; 
+                      font-weight:100 }
+
+#slidesContentHolder .slidePanel{ text-align:left; padding-top:60px; }
+
+#sliderPoints{ text-align:right; letter-spacing:-1px; font-size:21px; font-family:Segoe UI Light, Segoe UI, Arial;
+               position:absolute; bottom:15px; right:50px;}
+
+#sliderPoints .hover{ font-size:30px; letter-spacing:-3px; position:relative; top:2px }
+#sliderPoints #p1 { color:#de0000 }
+#sliderPoints #p2 { color:#07a7bb }
+#sliderPoints #p3 { color:#85b700 }
+#sliderPoints #p4 { color:#7b0055 }
+#sliderPoints #p5 { color:#005960 }
+#sliderPoints #p6 { color:#957aa6 }
+#sliderPoints #p7 { color:#626522 }
+
+#logoBack{ position:absolute; left:0px; top:40px; background:url('../images/logo_back.png'); width:279px; height:153px }
+#logo{ position:absolute; top:60px; left:45px; width:178px; height:96px; background:url('../images/logo.png') }
+
+
+#pageTextHolder{ padding:34px 34px 110px 34px; color:#1b1b1b; font-family:tahoma;  }
+#pageTextHolder h2{ font-size:24px; margin:0px; font-weight:100; height:30px; margin-top:20px;
+                    font-family:Segoe UI Light,Segoe UI, Verdana, Arial; padding:0px; text-align:left; }
+#pageTextHolder p{line-height:18px; font-size:11px; margin-top:14px; margin-bottom:0px; 
+                  padding:0px; font-family:Tahoma; letter-spacing:1px;}
+
+#pageTextHolder a{ padding-left:14px;}
+#pageTextHolder .arrowText{ font-size:11px; font-family:Arial; position:relative; top:0px; text-decoration:none;
+                             letter-spacing:-12px; left:-16px }
+
+
+
+.violet { color:#7b0055 }
+.lettuce{ color:#a8b700 }
+.sky    { color:#005960 }
+.olive  { color:#626522 }
+.gold   { color:#623500 }
+.sea    { color:#074d55 }
+.purple { color:#733b79 }
+.yellow { color:#96940c }
+
+#footerHolder { width:844px; padding:0px 22px 0px 22px; margin:auto; padding-bottom:208px; position:relative;
+    height:14px; padding-top:40px; background:url('../images/backGradlineVertical.gif') repeat-x #fff }
+
+#footerHolder .grCo{ position:absolute; top:-9px; width:22px; height:42px; }
+#footerHolder .grl{ left:0px; background:url('../images/backGradlineBL.gif') }
+#footerHolder .grr{ right:0px; background:url('../images/backGradlineBR.gif') }
+#footerHolder .grr{ right:0px; background:url('../images/backGradlineBR.gif') }
+#footerHolder .grCob{ position:absolute; top:0px; width:32px; height:32px }
+#footerHolder .grbl{ left:22px; background:url('../images/backGradlineBLB.jpg') }
+#footerHolder .grbr{ right:22px; background:url('../images/backGradlineBRB.jpg') }
+
+#bottomHexMenu{ padding:0px 65px ; margin-top:80px; height:276px  }
+#bottomHexMenu a{ display:block; float:left; margin:25px 31px 0px 31px; 
+                  width:175px; height:235px; text-align:center; font-weight:100;
+                  color:#fff; font-family:Segoe UI Light, Segoe UI; font-size:16px }
+#bottomHexMenu a:hover{ text-decoration:none; }
+
+#bottomHexMenu .h1{ background:url('../images/romb1.png') bottom no-repeat }
+#bottomHexMenu .h2{ background:url('../images/romb2.png') bottom no-repeat }
+#bottomHexMenu .h3{ background:url('../images/romb3.png') bottom no-repeat }
+#bottomHexMenu .h4{ background:url('../images/romb4.png') bottom no-repeat }
+#bottomHexMenu .h5{ background:url('../images/romb5.png') bottom no-repeat }
+#bottomHexMenu .h6{ background:url('../images/romb6.png') bottom no-repeat }
+
+
+.shopItem{ margin:50px 35px 0px 35px; width:120px; height:370px; text-align:center; float:left;
+           background-position:center 50px; background-repeat:no-repeat }
+
+.shopItem h4{ height:315px; padding:0px; margin:0px; font-weight:lighter; font-size:16px;}
+
+#pageTextHolder .shopItem a{  width:110px; margin:auto; padding:0px}
+#pageTextHolder .shopItem a:hover{ text-decoration:none; }
+#pageTextHolder .shopItem .shopItemPrice{ margin-bottom:10px; font-weight:100; font-size:12px; font-family: Segoe UI}
+
+#pageTextHolder .doubleButton{ background:url('../images/button_back.jpg'); display:block; color:#fff;
+                               text-align:center; font-size:11px;
+                                position:relative; height:22px; line-height:22px; padding:0px; }
+#pageTextHolder .doubleButton:hover{ text-decoration:none }
+#pageTextHolder .crb { display:block; height:22px; width:10px; top:0px; position:absolute; }
+#pageTextHolder .crbl{ left:0px; background:url('../images/button_left_round.png')           }
+#pageTextHolder .crbr{ right:0px;  background:url('../images/button_right_round.png');       }
+
+#pageTextHolder .greenButton{ background:url('../images/button_back_green.jpg') }
+#pageTextHolder .skyButton  { background:url('../images/button_back_sky.jpg') }
+
+.activePage{ text-align:justify }
+.activePage .doubleButton{ width:195px; margin-top:10px }
+
+#shopStateHolder{width:275px; position:absolute; left:263px; top:20px;}
+#shopStateHolder ul{ padding:15px 0px 15px 15px; margin:0px; font-size:11px }
+#shopStateHolder a{ color:#e0bdf6 }
+#shopStateHolder ul span{ padding-left:15px; font-weight:bold; font-size:14px }
+#shopStateHolder a:hover{ text-decoration:none; color:#fff }
+
+#shopcartOrder{ width:270px; position:absolute; right:20px; top:20px; font-size:12px }
+#shopcartOrder .inputsHolder{ text-align:right }
+#shopcartOrder .inputsHolder td{ padding-top:5px; vertical-align:top }
+#shopcartOrder .inputsHolder input, #shopcartOrder .inputsHolder textarea { 
+    border:1px solid #c1c1c1; margin:0px 0px 0px 10px; width:145px; padding:0px 5px; 
+    font-family:Verdana; font-size:13px; float:left; }
+
+#shopcartOrder .inputsHolder input{ height:17px; }
+#shopcartOrder .inputsHolder textarea{ height:40px;}
+#shopcartOrder .inputErrorStar{ font-size:20px; color:#fff; padding-left:5px; line-height:15px; position:relative;
+                                top:3px; font-family:Arial; }
+#shopcartOrder .hidden{ display:none }
+
+#newsPreview table { border-spacing:10px }
+

@@ -9,8 +9,7 @@
 	<% var question = Model; %>
 
 	<div class="img_block">
-		<a class="logo" href="#">сicé<span>safer skincare</span></a>
-		<img src="/Content/Images/qaa_saver.png" alt="Вопросы и ответы"/>
+			<img src="/Content/Images/qaa_saver.jpg" alt="Вопросы и ответы"/>
 	</div>
 	<div class="content_container">
 		<div class="title_qaa">

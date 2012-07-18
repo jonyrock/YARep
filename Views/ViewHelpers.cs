@@ -21,4 +21,12 @@ public static class ViewHelpers {
 
 	}
 
+	public static string SliderStatic(this HtmlHelper html, string backgroundUrl) {
+
+		return
+			"<div id=\"topSliderHolder\" class=\"SliderHolder\" style=\"background:url('" + backgroundUrl+ "')\">"
+			+ "<div id=\"logoBack\"></div>"
+			+ " <span id=\"logo\" style=\"background:url('/Content/Images/logo.png')\"></span></div>";
+	}
+
 }

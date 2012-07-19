@@ -62,14 +62,15 @@
 				<label for="email"> E-mail: </label>
 				<input name="email" id="email" type="email" value="<%= ViewData["postEmail"] %>" /> <span class="star"></span>
 				<label for="phone"> Телефон: </label>
-				<input name="name" id="phone" type="text" value="<%= ViewData["postPhone"] %>" /> <span class="star"></span>
+				<input name="phone" id="phone" type="text" value="<%= ViewData["postPhone"] %>" /> <span class="star"></span>
 				<label for="question"> Вопрос: </label>
 				<input name="title" id="question" type="text" maxlength="160" required="required" value="<%= ViewData["postTitle"] %>"  /> <span class="star">*</span>
 				<p class="rest">Максимальное количество символов - <span>160</span></p>
 				
-				<label class="l_area" for="area">
+				<%--<label class="l_area" for="area">
 					Дополнительные комментарии к вопросу:
-				</label>
+				</label>--%>
+				<label for="question"> Содержание вопроса: </label>
 				<textarea rows="3" name="text" id="area" required="required"><%= ViewData["postText"] %></textarea><span class="star"> *</span>
 				<p class="pole"><span class="star">*</span> обязательные для заполнения поля</p> <br />
 				<script type="text/javascript">

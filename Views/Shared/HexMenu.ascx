@@ -2,11 +2,11 @@
 <%@ Import Namespace="System.Linq" %>
 <% 
 	var linksBase = new string[][] { 
-		new string[] { "h1", "/About.aspx", "О Cice" }, 
-		new string[] { "h2", "/About.aspx", "Активные элементы" }, 
-		new string[] { "h3", "/Formula.aspx", "Формула S+A+F+E" }, 
-		new string[] { "h4", "/About.aspx", "Продукция cicé" }, 
-		new string[] { "h6", "/About.aspx", "Теория и практика" } 
+		new string[] { "h1", Url.Action("About", "Home"), "О Cice" }, 
+		new string[] { "h2", Url.Action("Active", "Home"), "Активные элементы" }, 
+		new string[] { "h3", Url.Action("Formula", "Home"), "Формула S+A+F+E" }, 
+		new string[] { "h4", Url.Action("Goods", "Home"), "Продукция cicé" }, 
+		new string[] { "h6", Url.Action("Theory", "Home"), "Теория и практика" } 
 	};
 
 	// R.A.Fisher and F. Yates algorithm

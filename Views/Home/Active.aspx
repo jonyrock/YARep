@@ -1,6 +1,10 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/MasterPage.master" Inherits="System.Web.Mvc.ViewPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PagePlaceHolder" Runat="Server">
 
+<asp:Content ID="TitleHolderContent" ContentPlaceHolderID="TitleHolder" runat="server"> 
+	Активные вещества
+</asp:Content>
+
 <script type="text/javascript">
 
 	var slidesStares = new Object();

@@ -1,5 +1,9 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/MasterPage.master" Inherits="System.Web.Mvc.ViewPage" %>
 
+<asp:Content ID="TitleHolderContent" ContentPlaceHolderID="TitleHolder" runat="server"> 
+	Контакты Сice
+</asp:Content>
+
 <asp:Content ID="contentId" ContentPlaceHolderID="PagePlaceHolder" runat="server">
 
 	<%= Html.SliderStatic("/Content/images/slide8.jpg")%>

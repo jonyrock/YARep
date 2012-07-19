@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MasterPage.master" Inherits="System.Web.Mvc.ViewPage" %>
 
+<asp:Content ID="TitleHolderContent" ContentPlaceHolderID="TitleHolder" runat="server"> 
+	Cice Cosmetics
+</asp:Content>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="PagePlaceHolder" runat="server">
 
 	<script type="text/javascript" src="/Scripts/jquery.timers-1.2.js"></script>

@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MasterPage.master" 
 Inherits="System.Web.Mvc.ViewPage<Cice.Models.Question>" %>
 
+<asp:Content ID="TitleHolderContent" ContentPlaceHolderID="TitleHolder" runat="server"> 
+	<%= Model.Title %>
+</asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="PagePlaceHolder" runat="server">
 	

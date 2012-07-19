@@ -1,4 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/MasterPage.master" Inherits="System.Web.Mvc.ViewPage" %>
+<asp:Content ID="TitleHolderContent" ContentPlaceHolderID="TitleHolder" runat="server"> 
+	Формула S+A+F+E
+</asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PagePlaceHolder" Runat="Server">
 	

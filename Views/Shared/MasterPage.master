@@ -4,13 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>#TITLE</title>
+	<title>
+		<asp:ContentPlaceHolder runat="server" ID="TitleHolder"></asp:ContentPlaceHolder>
+	</title>
 
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link rel="image_src" href="/Content/Images/logo.gif">
-    <link rel="Stylesheet" href="/Content/CSS/main.css"/>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="image_src" href="/Content/Images/logo.gif">
+	<link rel="Stylesheet" href="/Content/CSS/main.css"/>
 
-    <script type="text/javascript" src="/Scripts/jquery.js"></script>
+	<script type="text/javascript" src="/Scripts/jquery.js"></script>
 
 </head>
 
@@ -19,8 +21,8 @@
 <% Html.RenderPartial("Header"); %>
 
 <div id="centerHolder">
-        
-    <asp:ContentPlaceHolder id="PagePlaceHolder" runat="server"/>
+		
+	<asp:ContentPlaceHolder id="PagePlaceHolder" runat="server"/>
 
 </div>
 

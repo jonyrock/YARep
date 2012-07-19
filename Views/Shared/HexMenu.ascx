@@ -1,13 +1,34 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
+<%@ Import Namespace="System.Linq" %>
+<% 
+	var linksBase = new string[][] { 
+		new string[] { "h1", "/About.aspx", "О Cice" }, 
+		new string[] { "h2", "/About.aspx", "Активные элементы" }, 
+		new string[] { "h3", "/Formula.aspx", "Формула S+A+F+E" }, 
+		new string[] { "h4", "/About.aspx", "Продукция cicé" }, 
+		new string[] { "h6", "/About.aspx", "Теория и практика" } 
+	};
+
+	// R.A.Fisher and F. Yates algorithm
+	var rand = new Random();
+	for (int i = 0; i <= linksBase.Length - 1; i++) {
+		int j = rand.Next(linksBase.Length - 1);
+		if (i != j) {
+			var t = linksBase[i];
+			linksBase[i] = linksBase[j];
+			linksBase[j] = t;
+		}
+	}
+	
+	var linksToOutput = linksBase.Take(3);
+	
+%>
 
 
 <div id="bottomHexMenu" style="background:url('<%= Model %>')">
 
-    <a href="/About.aspx" class="h1" runat="server" id="h1" > О Cice </a>
-    <a href="/Active.aspx" class="h2" runat="server" id="h2" > Активные элементы </a>
-    <a href="/Formula.aspx" class="h3" runat="server" id="h3" > Формула S+A+F+E</a>
-   <%-- <a href="/Goods.aspx" class="h4" runat="server" id="h4" > Продукция cicé </a>
-    <%-- <a href="/Shop.aspx" class="h5" runat="server" id="h5" > Магазин </a> 
-    <a href="/Theory.aspx" class="h6" runat="server" id="h5" > Теория и практика </a>--%>
-
+	<% foreach (var link in linksToOutput) { %>
+		<a href="<%= link[1] %>" class="<%= link[0] %>" id="<%= link[0] %>" > <%= link[2] %> </a>
+	<% } %>
+	
 </div>

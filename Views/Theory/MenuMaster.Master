@@ -1,4 +1,9 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" MasterPageFile="~/Views/Shared/MasterPage.master" %>
+
+<asp:Content ID="TitleHolderContent" ContentPlaceHolderID="TitleHolder" runat="server"> 
+	Теория и практика использования косметики Cice
+</asp:Content>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="PagePlaceHolder" Runat="Server">
 	
 	<%= Html.SliderStatic("/Content/images/slide7.jpg")%>

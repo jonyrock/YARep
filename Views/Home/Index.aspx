@@ -84,7 +84,7 @@
 			</p>
 
 			<p style="text-align:right;"  >
-				<a href="/About.aspx" class="sky"><span class="arrowText">►</span>Подробнее</a>
+				<a href="<%= Url.Action("About", "Home") %>" class="sky"><span class="arrowText">►</span>Подробнее</a>
 			</p>
 
 		</div>
@@ -100,7 +100,7 @@
 			 </p>
 
 			<p style="text-align:right; width:315px; margin-top:12px"  >
-				<a href="/Active.aspx" class="yellow" ><span class="arrowText">►</span>Подробнее</a>
+				<a href="<%= Url.Action("Active", "Home") %>" class="yellow" ><span class="arrowText">►</span>Подробнее</a>
 			</p>
 
 		</div>
@@ -122,7 +122,7 @@
 			</p>
 
 			<p style="text-align:right; width:760px; margin-top:20px"  >
-				<a href="Formula.aspx" class="violet"><span class="arrowText">►</span>Подробнее</a>
+				<a href="<%= Url.Action("Formula", "Home") %>" class="violet"><span class="arrowText">►</span>Подробнее</a>
 			</p>
 
 		</div>
@@ -137,13 +137,13 @@
 			</p>
 
 			<p>
-				<a href="/Goods.aspx#item1" class="sea"><span class="arrowText">►</span>Дневной крем</a><br />
-				<a href="/Goods.aspx#item2" class="sea"><span class="arrowText">►</span>Ночной крем</a><br />
-				<a href="/Goods.aspx#item3" class="sea"><span class="arrowText">►</span>Крем для контура глаз</a><br />
-				<a href="/Goods.aspx#item4" class="sea"><span class="arrowText">►</span>Лосьон для тела</a><br />
-				<a href="/Goods.aspx#item5" class="sea"><span class="arrowText">►</span>Пена для очистки кожи</a><br />
-				<a href="/Goods.aspx#item6" class="sea"><span class="arrowText">►</span>Гидромаска</a><br />
-				<a href="/Goods.aspx#item7" class="sea"><span class="arrowText">►</span>Омолаживающая сыворотка</a>
+				<a href="<%= Url.Action("Goods", "Home") %>#item1" class="sea"><span class="arrowText">►</span>Дневной крем</a><br />
+				<a href="<%= Url.Action("Goods", "Home") %>#item2" class="sea"><span class="arrowText">►</span>Ночной крем</a><br />
+				<a href="<%= Url.Action("Goods", "Home") %>#item3" class="sea"><span class="arrowText">►</span>Крем для контура глаз</a><br />
+				<a href="<%= Url.Action("Goods", "Home") %>#item4" class="sea"><span class="arrowText">►</span>Лосьон для тела</a><br />
+				<a href="<%= Url.Action("Goods", "Home") %>#item5" class="sea"><span class="arrowText">►</span>Пена для очистки кожи</a><br />
+				<a href="<%= Url.Action("Goods", "Home") %>#item6" class="sea"><span class="arrowText">►</span>Гидромаска</a><br />
+				<a href="<%= Url.Action("Goods", "Home") %>#item7" class="sea"><span class="arrowText">►</span>Омолаживающая сыворотка</a>
 			</p>
 			
 

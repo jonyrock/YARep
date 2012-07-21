@@ -6,7 +6,7 @@
 		new string[] { "h2", Url.Action("Active", "Home"), "Активные элементы" }, 
 		new string[] { "h3", Url.Action("Formula", "Home"), "Формула S+A+F+E" }, 
 		new string[] { "h4", Url.Action("Goods", "Home"), "Продукция cicé" }, 
-		new string[] { "h6", Url.Action("Theory", "Home"), "Теория и практика" } 
+		new string[] { "h6", Url.Action("Index", "Theory"), "Теория и практика" } 
 	};
 
 	// R.A.Fisher and F. Yates algorithm

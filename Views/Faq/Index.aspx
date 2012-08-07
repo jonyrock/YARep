@@ -83,7 +83,7 @@
 						})
 					});
 				</script>
-				<div id="captchaHolder" style="height:166px; padding-left:84px; display:none">
+				<div id="captchaHolder" style="height:166px; padding-left:84px; display:none; clear: both">
 					<% var publicKey = ConfigurationManager.AppSettings["recaptha_public_key"]; %>
 					<script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=<%=publicKey %>"> </script>
 					<noscript><iframe src="https://www.google.com/recaptcha/api/noscript?k=<%=publicKey %>" height="300" width="500" frameborder="0"></iframe><br></noscript>

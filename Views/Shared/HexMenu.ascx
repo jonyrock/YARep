@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
 <%@ Import Namespace="System.Linq" %>
 <% 
-	var linksBase = new string[][] { 
+	var linksBase = new string[][] {
 		new string[] { "h1", Url.Action("About", "Home"), "О Cice" }, 
 		new string[] { "h2", Url.Action("Active", "Home"), "Активные элементы" }, 
 		new string[] { "h3", Url.Action("Formula", "Home"), "Формула S+A+F+E" }, 

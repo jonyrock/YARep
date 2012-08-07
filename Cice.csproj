@@ -185,6 +185,7 @@
     <Content Include="Content\Images\tm_border.png" />
     <Content Include="Content\Images\topLogos.gif" />
     <Content Include="Content\Images\vk.png" />
+    <Content Include="Docs\CodeReviewNodes.txt" />
     <Content Include="Docs\QuestionDesign\inside_admin_answer.png" />
     <Content Include="Docs\QuestionDesign\inside_admin_no_answer.png" />
     <Content Include="Docs\QuestionDesign\inside_answer.png" />
@@ -220,7 +221,9 @@
     <Content Include="Views\Theory\Index.aspx" />
     <Content Include="Views\Theory\Manual.aspx" />
     <Content Include="Views\Theory\TheoryMenu.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
